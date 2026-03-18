@@ -1,6 +1,5 @@
-import ProductCard from "../components/ProductCard";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { products } from "../data/products";
 
 export default function Home() {
   const categories = [
@@ -67,12 +66,12 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#products"
+                <Link
+                  to="/shop"
                   className="rounded-xl bg-stone-900 px-6 py-3 text-sm text-white shadow-sm hover:opacity-90"
                 >
-                  浏览产品
-                </a>
+                  查看全部产品
+                </Link>
 
                 <a
                   href="#trust"
@@ -157,9 +156,9 @@ export default function Home() {
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {categories.map((category) => (
-              <a
+              <Link
                 key={category.title}
-                href={`/category/${encodeURIComponent(category.title)}`}
+                to={`/category/${encodeURIComponent(category.title)}`}
                 className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="text-xs uppercase tracking-[0.18em] text-stone-400">
@@ -169,31 +168,8 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-7 text-stone-600">
                   {category.description}
                 </p>
-              </a>
+              </Link>
             ))}
-          </div>
-        </section>
-
-        <section id="products" className="border-y border-stone-200 bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <div className="text-sm text-stone-500">精选产品</div>
-                <h2 className="mt-2 text-3xl font-semibold">
-                  用更统一的品牌语言呈现每一件产品
-                </h2>
-              </div>
-
-              <p className="max-w-2xl text-sm leading-7 text-stone-600">
-                所有产品页面都围绕安心、质感、隐私与身体友好展开，保持一致的品牌体验。
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
           </div>
         </section>
 
@@ -239,21 +215,21 @@ export default function Home() {
           <div className="rounded-[2rem] border border-stone-200 bg-white px-8 py-10 shadow-sm md:px-12">
             <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <div className="text-sm text-stone-500">发现更多产品</div>
+                <div className="text-sm text-stone-500">进入产品页</div>
                 <h2 className="mt-2 text-3xl font-semibold">
-                  通过更平和、更成熟的方式进入私密健康体验
+                  从统一的产品页面开始浏览完整系列
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-stone-600 md:text-base">
-                  从品牌系列到具体产品，我们希望每个页面都能呈现统一、安心且值得信任的品牌感受。
+                  你可以进入独立的产品页面，更集中地浏览全部商品，再进入详情页了解具体信息。
                 </p>
               </div>
 
-              <a
-                href="#products"
+              <Link
+                to="/shop"
                 className="rounded-xl bg-stone-900 px-6 py-3 text-sm text-white hover:opacity-90"
               >
-                查看精选产品
-              </a>
+                查看全部产品
+              </Link>
             </div>
           </div>
         </section>

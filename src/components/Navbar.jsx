@@ -22,15 +22,16 @@ export default function Navbar() {
             <>
               <a href="#home" className="hover:text-stone-950">首页</a>
               <a href="#categories" className="hover:text-stone-950">品牌系列</a>
-              <a href="#products" className="hover:text-stone-950">精选产品</a>
+              <Link to="/shop" className="hover:text-stone-950">全部产品</Link>
               <a href="#trust" className="hover:text-stone-950">品牌承诺</a>
+              <Link to="/contact" className="hover:text-stone-950">在线咨询</Link>
             </>
           ) : (
             <>
               <Link to="/" className="hover:text-stone-950">首页</Link>
+              <Link to="/shop" className="hover:text-stone-950">全部产品</Link>
               <Link to="/category/润滑护理" className="hover:text-stone-950">品牌系列</Link>
-              <Link to="/" className="hover:text-stone-950">精选产品</Link>
-              <Link to="/" className="hover:text-stone-950">品牌承诺</Link>
+              <Link to="/contact" className="hover:text-stone-950">在线咨询</Link>
             </>
           )}
         </nav>
@@ -44,18 +45,18 @@ export default function Navbar() {
           </Link>
 
           {isHome ? (
-            <a
-              href="#products"
+            <Link
+              to="/shop"
               className="rounded-xl bg-stone-900 px-4 py-2 text-sm text-white hover:opacity-90"
             >
-              探索品牌
-            </a>
+              浏览产品
+            </Link>
           ) : (
             <Link
-              to="/"
+              to="/contact"
               className="rounded-xl bg-stone-900 px-4 py-2 text-sm text-white hover:opacity-90"
             >
-              返回首页
+              咨询客服
             </Link>
           )}
         </div>
