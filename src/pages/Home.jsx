@@ -48,40 +48,40 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <section id="home" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <div className="mb-5 inline-flex rounded-full border border-stone-300 bg-white px-3 py-1 text-xs text-stone-600 shadow-sm">
+              <div className="mb-4 inline-flex rounded-full border border-stone-300 bg-white px-3 py-1 text-[11px] text-stone-600 shadow-sm sm:text-xs">
                 Velure Health 品牌主页
               </div>
 
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              <h1 className="max-w-4xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-6xl">
                 用更成熟、克制、安心的方式
-                <span className="block">重新定义私密健康体验</span>
+                <span className="mt-1 block">重新定义私密健康体验</span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 md:text-lg">
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-stone-600 sm:text-base md:text-lg md:leading-8">
                 Velure Health 专注于以更温和、更有质感的方式呈现私密产品。
                 我们相信，身体友好、隐私体验与成熟审美，才是值得长期建立的品牌语言。
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   to="/shop"
-                  className="rounded-xl bg-stone-900 px-6 py-3 text-sm text-white shadow-sm hover:opacity-90"
+                  className="rounded-2xl bg-stone-900 px-5 py-3 text-center text-sm text-white hover:opacity-90"
                 >
                   查看全部产品
                 </Link>
 
                 <a
                   href="#trust"
-                  className="rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm text-stone-700 hover:bg-stone-100"
+                  className="rounded-2xl border border-stone-300 bg-white px-5 py-3 text-center text-sm text-stone-700 hover:bg-stone-100"
                 >
                   了解品牌理念
                 </a>
               </div>
 
-              <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {trustPoints.map((item) => (
                   <div
                     key={item}
@@ -93,23 +93,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-sm md:p-8">
-              <div className="rounded-[1.75rem] bg-gradient-to-br from-stone-100 via-stone-100 to-stone-200 p-8">
-                <div className="text-xs uppercase tracking-[0.2em] text-stone-500">
+            <div className="rounded-[1.75rem] border border-stone-200 bg-white p-5 shadow-sm sm:p-6 md:rounded-[2rem] md:p-8">
+              <div className="rounded-[1.5rem] bg-gradient-to-br from-stone-100 via-stone-100 to-stone-200 p-6 md:rounded-[1.75rem] md:p-8">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-stone-500 sm:text-xs">
                   Brand Philosophy
                 </div>
-                <div className="mt-3 text-2xl font-semibold leading-9 text-stone-900 md:text-3xl">
+                <div className="mt-3 text-xl font-semibold leading-8 text-stone-900 sm:text-2xl md:text-3xl md:leading-9">
                   更像健康护理品牌，
                   <br />
                   更尊重用户真实感受
                 </div>
-                <p className="mt-4 max-w-md text-sm leading-7 text-stone-600">
+                <p className="mt-4 text-sm leading-7 text-stone-600">
                   我们希望把私密产品从“刺激化展示”中抽离出来，
                   让选择这件事变得更自然、更平静，也更值得信任。
                 </p>
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-stone-200 p-5">
                   <div className="text-xs text-stone-500">品牌关键词</div>
                   <div className="mt-2 text-lg font-semibold">身体友好</div>
@@ -131,7 +131,7 @@ export default function Home() {
         </section>
 
         <section className="border-y border-stone-200 bg-white">
-          <div className="mx-auto grid max-w-7xl gap-6 px-6 py-10 md:grid-cols-3">
+          <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-3">
             {brandValues.map((item) => (
               <div key={item.title}>
                 <div className="text-sm text-stone-500">品牌价值</div>
@@ -142,11 +142,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="categories" className="mx-auto max-w-7xl px-6 py-20">
-          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <section id="categories" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
             <div>
               <div className="text-sm text-stone-500">品牌系列</div>
-              <h2 className="mt-2 text-3xl font-semibold">围绕私密健康体验构建的产品体系</h2>
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
+                围绕私密健康体验构建的产品体系
+              </h2>
             </div>
 
             <p className="max-w-2xl text-sm leading-7 text-stone-600">
@@ -154,7 +156,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {categories.map((category) => (
               <Link
                 key={category.title}
@@ -174,10 +176,10 @@ export default function Home() {
         </section>
 
         <section id="trust" className="bg-stone-900 text-stone-50">
-          <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
             <div className="max-w-3xl">
               <div className="text-sm text-stone-400">品牌承诺</div>
-              <h2 className="mt-2 text-3xl font-semibold">
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
                 我们希望每一次选择，都建立在安心与尊重之上
               </h2>
               <p className="mt-5 text-sm leading-8 text-stone-300 md:text-base">
@@ -186,7 +188,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3">
               <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
                 <h3 className="text-xl font-semibold">隐私优先</h3>
                 <p className="mt-4 text-sm leading-7 text-stone-300">
@@ -211,12 +213,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20">
-          <div className="rounded-[2rem] border border-stone-200 bg-white px-8 py-10 shadow-sm md:px-12">
-            <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="rounded-[2rem] border border-stone-200 bg-white px-6 py-8 shadow-sm md:px-12 md:py-10">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <div className="text-sm text-stone-500">进入产品页</div>
-                <h2 className="mt-2 text-3xl font-semibold">
+                <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
                   从统一的产品页面开始浏览完整系列
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-stone-600 md:text-base">
@@ -226,7 +228,7 @@ export default function Home() {
 
               <Link
                 to="/shop"
-                className="rounded-xl bg-stone-900 px-6 py-3 text-sm text-white hover:opacity-90"
+                className="rounded-2xl bg-stone-900 px-6 py-3 text-center text-sm text-white hover:opacity-90"
               >
                 查看全部产品
               </Link>
