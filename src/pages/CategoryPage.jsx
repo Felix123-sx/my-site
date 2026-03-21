@@ -27,66 +27,65 @@ export default function CategoryPage() {
     "浏览该系列下的精选产品，体验更安心、更克制的品牌表达。";
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
+    <div className="min-h-screen tone-base text-[#2f342e]">
       <Navbar />
 
-      <main className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link to="/" className="text-stone-500 hover:text-stone-900 hover:underline">
-            首页
-          </Link>
-          <span className="text-stone-400">/</span>
-          <span className="font-medium text-stone-900">{decodedCategory}</span>
+      <main className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-14">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-[#5b645b]">
+          <Link to="/" className="hover:text-[#2f342e]">首页</Link>
+          <span>/</span>
+          <span className="text-[#2f342e]">{decodedCategory}</span>
         </div>
 
-        <section className="mt-8">
-          <div className="max-w-3xl">
-            <div className="text-sm text-stone-500">品牌系列</div>
-            <h1 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
-              {decodedCategory}
-            </h1>
-            <p className="mt-4 text-base leading-8 text-stone-600">
-              {description}
-            </p>
-          </div>
+        <section className="mt-8 max-w-3xl">
+          <div className="eyebrow">Series</div>
+          <h1 className="font-editorial mt-4 text-4xl font-semibold md:text-6xl">
+            {decodedCategory}
+          </h1>
+          <p className="mt-5 text-sm leading-7 text-[#5b645b] md:text-base md:leading-8">
+            {description}
+          </p>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-10">
           {filteredProducts.length > 0 ? (
             <>
-              <div className="mb-8 flex items-end justify-between gap-6">
+              <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <div className="text-sm text-stone-500">精选产品</div>
-                  <h2 className="mt-2 text-2xl font-semibold">
-                    该系列下的产品选择
+                  <div className="text-sm text-[#5b645b]">Selection</div>
+                  <h2 className="font-editorial mt-2 text-3xl font-semibold">
+                    该系列下的产品
                   </h2>
                 </div>
-                <p className="hidden max-w-xl text-sm leading-7 text-stone-600 md:block">
-                  每件产品都延续 Velure Health 一贯的表达方式：克制、安心、质感与更温和的私密健康体验。
-                </p>
+                <div className="text-sm text-[#5b645b]">
+                  共 <span className="font-semibold text-[#2f342e]">{filteredProducts.length}</span> 件
+                </div>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
                 {filteredProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
             </>
           ) : (
-            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
-              <div className="text-sm text-stone-500">暂无内容</div>
-              <h2 className="mt-2 text-2xl font-semibold">该系列下暂时没有产品</h2>
-              <p className="mt-3 text-sm leading-7 text-stone-600">
-                这个分类页已经可以正常工作，只是当前数据里还没有对应产品。
-                你可以稍后在产品数据中补充这个系列的商品内容。
+            <div className="tone-card rounded-[1.5rem] p-8 md:p-10">
+              <div className="eyebrow">No Products</div>
+              <h2 className="font-editorial mt-4 text-3xl font-semibold md:text-4xl">
+                该系列下暂时没有产品
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-[#5b645b] md:leading-8">
+                当前数据里还没有对应商品，你可以先返回首页或浏览全部产品。
               </p>
 
-              <Link
-                to="/"
-                className="mt-6 inline-block rounded-xl bg-stone-900 px-5 py-3 text-sm text-white hover:opacity-90"
-              >
-                返回首页
-              </Link>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Link to="/shop" className="btn-primary">
+                  查看全部产品
+                </Link>
+                <Link to="/" className="btn-secondary">
+                  返回首页
+                </Link>
+              </div>
             </div>
           )}
         </section>

@@ -48,40 +48,39 @@ export default function ShopPage() {
   }, [activeFilter, searchTerm, sortType]);
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
+    <div className="min-h-screen tone-base text-[#2f342e]">
       <Navbar />
 
-      <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-16">
+      <main className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-14">
         <section className="max-w-3xl">
-          <div className="text-sm text-stone-500">Shop</div>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
+          <div className="eyebrow">Shop</div>
+          <h1 className="font-editorial mt-4 text-4xl font-semibold md:text-6xl">
             全部产品
           </h1>
-          <p className="mt-4 text-sm leading-7 text-stone-600 sm:text-base md:leading-8">
-            浏览 Velure Health 当前呈现的全部产品系列。每一件产品都围绕安心、质感、
-            隐私与身体友好展开，保持统一的品牌体验。
+          <p className="mt-5 text-sm leading-7 text-[#5b645b] md:text-base md:leading-8">
+            围绕安心、隐私与身体友好整理的产品选择。
           </p>
         </section>
 
-        <section className="mt-8 rounded-[2rem] border border-stone-200 bg-white p-5 shadow-sm md:mt-10 md:p-8">
-          <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
+        <section className="tone-low mt-8 rounded-[1.75rem] p-5 md:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_220px] lg:items-end">
             <div>
-              <div className="text-sm text-stone-500">搜索产品</div>
+              <div className="text-sm text-[#5b645b]">搜索产品</div>
               <input
                 type="text"
-                placeholder="搜索产品名称、分类或关键词"
+                placeholder="搜索名称、分类或关键词"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="mt-3 w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-sm outline-none focus:border-stone-500"
+                className="mt-3 w-full border-b border-[#2f342e]/12 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-[#8b9389]"
               />
             </div>
 
-            <div className="min-w-0 lg:min-w-[220px]">
-              <div className="text-sm text-stone-500">排序方式</div>
+            <div>
+              <div className="text-sm text-[#5b645b]">排序方式</div>
               <select
                 value={sortType}
                 onChange={(e) => setSortType(e.target.value)}
-                className="mt-3 w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-sm outline-none focus:border-stone-500"
+                className="mt-3 w-full border-b border-[#2f342e]/12 bg-transparent px-0 py-3 text-sm outline-none"
               >
                 <option value="default">默认排序</option>
                 <option value="price-asc">价格从低到高</option>
@@ -90,10 +89,10 @@ export default function ShopPage() {
             </div>
           </div>
 
-          <div className="mt-6 md:mt-8">
-            <div className="mb-4 text-sm text-stone-500">分类筛选</div>
+          <div className="mt-7">
+            <div className="mb-3 text-sm text-[#5b645b]">分类筛选</div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex flex-wrap gap-2.5">
               {filters.map((filter) => {
                 const isActive = activeFilter === filter;
 
@@ -101,10 +100,10 @@ export default function ShopPage() {
                   <button
                     key={filter}
                     onClick={() => setActiveFilter(filter)}
-                    className={`rounded-xl px-4 py-2 text-sm transition ${
+                    className={`rounded-full px-4 py-2 text-sm transition ${
                       isActive
-                        ? "bg-stone-900 text-white"
-                        : "border border-stone-300 bg-white text-stone-700 hover:bg-stone-100"
+                        ? "bg-[#536257] text-[#ebfcee]"
+                        : "bg-white text-[#2f342e] shadow-[inset_0_0_0_1px_rgba(47,52,46,0.06)] hover:bg-[#f8f8f4]"
                     }`}
                   >
                     {filter}
@@ -115,42 +114,44 @@ export default function ShopPage() {
           </div>
         </section>
 
-        <section className="mt-10 md:mt-12">
-          <div className="mb-6 flex flex-col gap-3 md:mb-8 md:flex-row md:items-end md:justify-between">
+        <section className="mt-10">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <div className="text-sm text-stone-500">产品列表</div>
-              <h2 className="mt-2 text-2xl font-semibold">
-                {activeFilter === "全部" ? "全部产品" : `${activeFilter} 系列`}
+              <div className="text-sm text-[#5b645b]">Collection</div>
+              <h2 className="font-editorial mt-2 text-3xl font-semibold">
+                {activeFilter === "全部" ? "当前产品" : `${activeFilter} 系列`}
               </h2>
             </div>
 
-            <div className="text-sm text-stone-600">
-              共找到 <span className="font-semibold">{filteredProducts.length}</span> 件产品
+            <div className="text-sm text-[#5b645b]">
+              共 <span className="font-semibold text-[#2f342e]">{filteredProducts.length}</span> 件
             </div>
           </div>
 
           {filteredProducts.length > 0 ? (
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
-              <div className="text-sm text-stone-500">暂无产品</div>
-              <h3 className="mt-2 text-2xl font-semibold">没有找到符合条件的产品</h3>
-              <p className="mt-3 text-sm leading-7 text-stone-600">
-                你可以尝试切换分类、清空搜索关键词，或者稍后补充更多商品数据。
+            <div className="tone-card rounded-[1.5rem] p-8 md:p-10">
+              <div className="eyebrow">No Results</div>
+              <h3 className="font-editorial mt-4 text-3xl font-semibold md:text-4xl">
+                没有找到符合条件的产品
+              </h3>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5b645b] md:leading-8">
+                可以尝试切换分类、清空关键词，或恢复默认排序。
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6">
                 <button
                   onClick={() => {
                     setActiveFilter("全部");
                     setSearchTerm("");
                     setSortType("default");
                   }}
-                  className="rounded-xl bg-stone-900 px-5 py-3 text-sm text-white hover:opacity-90"
+                  className="btn-primary"
                 >
                   重置筛选
                 </button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
@@ -9,97 +9,111 @@ export default function Navbar() {
 
   const isHome = location.pathname === "/";
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  const homeLinks = [
+    { label: "首页", href: "#home", type: "anchor" },
+    { label: "系列", href: "#categories", type: "anchor" },
+    { label: "产品", href: "/shop", type: "link" },
+    { label: "承诺", href: "#trust", type: "anchor" },
+  ];
+
+  const innerLinks = [
+    { label: "首页", href: "/", type: "link" },
+    { label: "产品", href: "/shop", type: "link" },
+    { label: "咨询", href: "/contact", type: "link" },
+  ];
+
+  const links = isHome ? homeLinks : innerLinks;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-stone-50/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link to="/" className="block">
-          <div className="text-base font-semibold tracking-wide sm:text-lg">
+    <header className="sticky top-0 z-50 border-b border-black/5 glass-panel">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <Link to="/" className="flex min-w-0 items-center gap-3">
+          <div className="font-editorial text-[15px] font-semibold tracking-[0.01em] text-[#2f342e] sm:text-base">
             Velure Health
           </div>
-          <div className="text-[10px] text-stone-500 sm:text-xs">
-            Sexual Wellness · Private Care
+          <div className="hidden h-3 w-px bg-black/10 sm:block" />
+          <div className="hidden text-[11px] tracking-[0.08em] text-[#7a8378] sm:block">
+            PRIVATE WELLNESS
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm text-stone-600 md:flex">
-          {isHome ? (
-            <>
-              <a href="#home" className="hover:text-stone-950">首页</a>
-              <a href="#categories" className="hover:text-stone-950">品牌系列</a>
-              <Link to="/shop" className="hover:text-stone-950">全部产品</Link>
-              <a href="#trust" className="hover:text-stone-950">品牌承诺</a>
-              <Link to="/contact" className="hover:text-stone-950">在线咨询</Link>
-            </>
-          ) : (
-            <>
-              <Link to="/" className="hover:text-stone-950">首页</Link>
-              <Link to="/shop" className="hover:text-stone-950">全部产品</Link>
-              <Link to="/category/润滑护理" className="hover:text-stone-950">品牌系列</Link>
-              <Link to="/contact" className="hover:text-stone-950">在线咨询</Link>
-            </>
+        <nav className="hidden items-center gap-6 text-[13px] text-[#667064] md:flex">
+          {links.map((item) =>
+            item.type === "anchor" ? (
+              <a key={item.label} href={item.href} className="transition hover:text-[#2f342e]">
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.label} to={item.href} className="transition hover:text-[#2f342e]">
+                {item.label}
+              </Link>
+            )
           )}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            to="/cart"
-            className="rounded-xl border border-stone-300 px-4 py-2 text-sm text-stone-700 hover:bg-stone-100"
-          >
-            购物车 ({cartCount})
-          </Link>
-
-          <Link
-            to="/contact"
-            className="rounded-xl bg-stone-900 px-4 py-2 text-sm text-white hover:opacity-90"
-          >
-            咨询客服
+          <Link to="/cart" className="nav-cart-link">
+            购物车
+            <span className="nav-cart-count">{cartCount}</span>
           </Link>
         </div>
 
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-stone-300 bg-white text-stone-700 md:hidden"
+          aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
+          aria-expanded={mobileOpen}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/80 text-sm text-[#2f342e] md:hidden"
         >
           {mobileOpen ? "✕" : "☰"}
         </button>
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-stone-200 bg-stone-50 px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-3 text-sm text-stone-700">
-            {isHome ? (
-              <>
-                <a href="#home" onClick={() => setMobileOpen(false)}>首页</a>
-                <a href="#categories" onClick={() => setMobileOpen(false)}>品牌系列</a>
-                <Link to="/shop" onClick={() => setMobileOpen(false)}>全部产品</Link>
-                <a href="#trust" onClick={() => setMobileOpen(false)}>品牌承诺</a>
-                <Link to="/contact" onClick={() => setMobileOpen(false)}>在线咨询</Link>
-              </>
-            ) : (
-              <>
-                <Link to="/" onClick={() => setMobileOpen(false)}>首页</Link>
-                <Link to="/shop" onClick={() => setMobileOpen(false)}>全部产品</Link>
-                <Link to="/category/润滑护理" onClick={() => setMobileOpen(false)}>品牌系列</Link>
-                <Link to="/contact" onClick={() => setMobileOpen(false)}>在线咨询</Link>
-              </>
+        <div className="mx-4 mb-4 rounded-[1.25rem] border border-black/5 bg-white/95 p-4 ambient-shadow md:hidden sm:mx-6">
+          <div className="flex flex-col gap-1 text-sm text-[#5b645b]">
+            {links.map((item) =>
+              item.type === "anchor" ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-3 py-3 transition hover:bg-[#f6f5f1] hover:text-[#2f342e]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-3 py-3 transition hover:bg-[#f6f5f1] hover:text-[#2f342e]"
+                >
+                  {item.label}
+                </Link>
+              )
             )}
 
-            <div className="mt-2 flex flex-col gap-3">
+            <div className="mt-3 border-t border-black/6 pt-3">
               <Link
                 to="/cart"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl border border-stone-300 px-4 py-3 text-center"
+                className="flex items-center justify-between rounded-xl bg-[#f6f5f1] px-4 py-3 text-[#2f342e]"
               >
-                购物车 ({cartCount})
+                <span>购物车</span>
+                <span className="nav-cart-count">{cartCount}</span>
               </Link>
 
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl bg-stone-900 px-4 py-3 text-center text-white"
+                className="mt-3 block rounded-xl bg-[#536257] px-4 py-3 text-center text-sm text-[#ebfcee]"
               >
-                咨询客服
+                在线咨询
               </Link>
             </div>
           </div>

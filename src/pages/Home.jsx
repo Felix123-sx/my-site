@@ -5,169 +5,112 @@ export default function Home() {
   const categories = [
     {
       title: "情侣关怀",
-      description: "以更自然、舒适与尊重体验为基础，关注亲密关系中的健康表达。",
+      description: "更自然、舒适的亲密关系护理选择。",
     },
     {
       title: "润滑护理",
-      description: "强调温和、舒适与身体友好，让日常私密护理更轻松自然。",
+      description: "温和、身体友好的日常私密护理产品。",
     },
     {
       title: "私密健康",
-      description: "围绕材料、安全感与护理体验，建立更安心的品牌感受。",
+      description: "围绕安心感与日常护理建立基础选择。",
     },
     {
       title: "精选器具",
-      description: "以成熟审美、克制设计和品质材料呈现更高级的私密产品体验。",
+      description: "以克制设计与成熟审美呈现品质体验。",
     },
   ];
 
-  const trustPoints = [
-    "隐私包装发货",
-    "身体友好材料",
-    "正规渠道采购",
-    "安全支付与售后支持",
-  ];
-
-  const brandValues = [
-    {
-      title: "克制表达",
-      text: "不追求低俗和刺激化视觉，而是以更成熟、更平和的方式呈现私密产品。",
-    },
-    {
-      title: "安心体验",
-      text: "从材质、包装到售后说明，尽可能减少用户在选择与购买过程中的顾虑。",
-    },
-    {
-      title: "质感审美",
-      text: "通过更简洁的页面语言和更稳定的视觉气质，建立值得信任的品牌印象。",
-    },
-  ];
+  const trustPoints = ["隐私包装", "身体友好", "正规采购", "售后支持"];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900">
+    <div className="min-h-screen tone-base text-[#2f342e]">
       <Navbar />
 
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <div className="mb-4 inline-flex rounded-full border border-stone-300 bg-white px-3 py-1 text-[11px] text-stone-600 shadow-sm sm:text-xs">
-                Velure Health 品牌主页
+        <section id="home" className="mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 md:pb-20 md:pt-16">
+          <div className="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
+            <div className="max-w-3xl">
+              <div className="eyebrow">
+                Velure Health · Private Wellness
               </div>
 
-              <h1 className="max-w-4xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-6xl">
-                用更成熟、克制、安心的方式
-                <span className="mt-1 block">重新定义私密健康体验</span>
+              <h1 className="font-editorial editorial-hero mt-5 max-w-4xl text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-[4.5rem]">
+                用更成熟、克制的方式
+                <span className="mt-2 block text-[#536257]">
+                  呈现私密健康体验
+                </span>
               </h1>
 
-              <p className="mt-5 max-w-2xl text-sm leading-7 text-stone-600 sm:text-base md:text-lg md:leading-8">
-                Velure Health 专注于以更温和、更有质感的方式呈现私密产品。
-                我们相信，身体友好、隐私体验与成熟审美，才是值得长期建立的品牌语言。
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-[#5b645b] sm:text-base md:leading-8">
+                我们希望把选择变得更自然、更平静。
+                从产品表达、页面语言到购买体验，都尽量回到舒适、尊重与身体友好的尺度。
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  to="/shop"
-                  className="rounded-2xl bg-stone-900 px-5 py-3 text-center text-sm text-white hover:opacity-90"
-                >
-                  查看全部产品
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link to="/shop" className="btn-primary">
+                  浏览产品
                 </Link>
 
-                <a
-                  href="#trust"
-                  className="rounded-2xl border border-stone-300 bg-white px-5 py-3 text-center text-sm text-stone-700 hover:bg-stone-100"
-                >
-                  了解品牌理念
+                <a href="#categories" className="btn-secondary">
+                  查看系列
                 </a>
               </div>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 flex flex-wrap gap-2.5">
                 {trustPoints.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-stone-200 bg-white px-4 py-4 text-sm text-stone-700 shadow-sm"
-                  >
-                    ✓ {item}
+                  <div key={item} className="pill-soft">
+                    {item}
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-[1.75rem] border border-stone-200 bg-white p-5 shadow-sm sm:p-6 md:rounded-[2rem] md:p-8">
-              <div className="rounded-[1.5rem] bg-gradient-to-br from-stone-100 via-stone-100 to-stone-200 p-6 md:rounded-[1.75rem] md:p-8">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-stone-500 sm:text-xs">
-                  Brand Philosophy
-                </div>
-                <div className="mt-3 text-xl font-semibold leading-8 text-stone-900 sm:text-2xl md:text-3xl md:leading-9">
+            <div className="tone-mid rounded-[1.75rem] p-4 sm:p-5 md:p-6">
+              <div className="rounded-[1.4rem] bg-gradient-to-br from-[#fcfbf8] to-[#dfeadf] p-6 sm:p-7 md:p-8">
+                <div className="eyebrow">Brand Note</div>
+
+                <div className="font-editorial mt-4 text-2xl font-semibold leading-9 md:text-[2rem] md:leading-[1.35]">
                   更像健康护理品牌，
                   <br />
-                  更尊重用户真实感受
+                  而不是夸张的刺激展示
                 </div>
-                <p className="mt-4 text-sm leading-7 text-stone-600">
-                  我们希望把私密产品从“刺激化展示”中抽离出来，
-                  让选择这件事变得更自然、更平静，也更值得信任。
+
+                <p className="mt-5 max-w-md text-sm leading-7 text-[#5b645b] md:text-base md:leading-8">
+                  Velure Health 选择更安静的表达方式，
+                  让用户在不被打扰的状态下完成了解、选择与购买。
                 </p>
-              </div>
-
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-stone-200 p-5">
-                  <div className="text-xs text-stone-500">品牌关键词</div>
-                  <div className="mt-2 text-lg font-semibold">身体友好</div>
-                  <p className="mt-2 text-sm leading-6 text-stone-600">
-                    强调舒适、安全与更温和的体验表达。
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-stone-200 p-5">
-                  <div className="text-xs text-stone-500">品牌关键词</div>
-                  <div className="mt-2 text-lg font-semibold">成熟审美</div>
-                  <p className="mt-2 text-sm leading-6 text-stone-600">
-                    以简洁、克制和稳定的视觉气质建立品牌印象。
-                  </p>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="border-y border-stone-200 bg-white">
-          <div className="mx-auto grid max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-3">
-            {brandValues.map((item) => (
-              <div key={item.title}>
-                <div className="text-sm text-stone-500">品牌价值</div>
-                <div className="mt-2 text-xl font-semibold">{item.title}</div>
-                <p className="mt-3 text-sm leading-7 text-stone-600">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="categories" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
-          <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
-            <div>
-              <div className="text-sm text-stone-500">品牌系列</div>
-              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
-                围绕私密健康体验构建的产品体系
+        <section id="categories" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-18">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <div className="eyebrow">Selected Series</div>
+              <h2 className="font-editorial mt-3 text-3xl font-semibold md:text-5xl">
+                围绕真实需求整理的系列入口
               </h2>
             </div>
 
-            <p className="max-w-2xl text-sm leading-7 text-stone-600">
-              不同系列并不是简单的商品分类，而是围绕不同使用场景与体验需求形成的品牌表达。
-            </p>
+            <Link to="/shop" className="text-sm text-[#2f342e] underline underline-offset-4">
+              查看全部产品
+            </Link>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {categories.map((category) => (
               <Link
                 key={category.title}
                 to={`/category/${encodeURIComponent(category.title)}`}
-                className="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                className="tone-card rounded-[1.25rem] p-5 transition hover:-translate-y-[1px] hover:bg-[#f8f8f4]"
               >
-                <div className="text-xs uppercase tracking-[0.18em] text-stone-400">
-                  Series
+                <div className="eyebrow">Series</div>
+                <div className="font-editorial mt-4 text-2xl font-semibold">
+                  {category.title}
                 </div>
-                <div className="mt-3 text-xl font-semibold">{category.title}</div>
-                <p className="mt-3 text-sm leading-7 text-stone-600">
+                <p className="mt-3 text-sm leading-7 text-[#5b645b]">
                   {category.description}
                 </p>
               </Link>
@@ -175,63 +118,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="trust" className="bg-stone-900 text-stone-50">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
-            <div className="max-w-3xl">
-              <div className="text-sm text-stone-400">品牌承诺</div>
-              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
-                我们希望每一次选择，都建立在安心与尊重之上
-              </h2>
-              <p className="mt-5 text-sm leading-8 text-stone-300 md:text-base">
-                从页面表达、产品呈现到下单体验，Velure Health 始终坚持更克制的沟通方式，
-                让用户在更自然、更放松的状态下认识并选择属于自己的私密健康产品。
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-4 md:mt-10 md:grid-cols-3">
-              <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
-                <h3 className="text-xl font-semibold">隐私优先</h3>
-                <p className="mt-4 text-sm leading-7 text-stone-300">
-                  以更审慎的方式处理包装、展示和购买流程，减少不必要的心理压力。
-                </p>
-              </div>
-
-              <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
-                <h3 className="text-xl font-semibold">安全感表达</h3>
-                <p className="mt-4 text-sm leading-7 text-stone-300">
-                  用更温和的页面语言与材料说明，建立更稳定的品牌信任基础。
-                </p>
-              </div>
-
-              <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
-                <h3 className="text-xl font-semibold">长期品牌感</h3>
-                <p className="mt-4 text-sm leading-7 text-stone-300">
-                  不追求短期刺激式展示，而是塑造可以长期被记住的品牌气质。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
-          <div className="rounded-[2rem] border border-stone-200 bg-white px-6 py-8 shadow-sm md:px-12 md:py-10">
-            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <section id="trust" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 md:pb-24">
+          <div className="tone-low rounded-[1.75rem] px-5 py-8 sm:px-7 md:px-10 md:py-10">
+            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div>
-                <div className="text-sm text-stone-500">进入产品页</div>
-                <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
-                  从统一的产品页面开始浏览完整系列
+                <div className="eyebrow">Our Promise</div>
+                <h2 className="font-editorial mt-3 text-3xl font-semibold md:text-5xl">
+                  安心、隐私与更长期的信任感
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-stone-600 md:text-base">
-                  你可以进入独立的产品页面，更集中地浏览全部商品，再进入详情页了解具体信息。
-                </p>
               </div>
 
-              <Link
-                to="/shop"
-                className="rounded-2xl bg-stone-900 px-6 py-3 text-center text-sm text-white hover:opacity-90"
-              >
-                查看全部产品
-              </Link>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="tone-card rounded-[1.15rem] p-5">
+                  <h3 className="font-editorial text-xl font-semibold">隐私优先</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#5b645b]">
+                    包装与购买流程尽量克制，减少额外心理负担。
+                  </p>
+                </div>
+
+                <div className="tone-card rounded-[1.15rem] p-5">
+                  <h3 className="font-editorial text-xl font-semibold">温和表达</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#5b645b]">
+                    用更舒适的页面语言，建立自然的浏览体验。
+                  </p>
+                </div>
+
+                <div className="tone-card rounded-[1.15rem] p-5">
+                  <h3 className="font-editorial text-xl font-semibold">品质选择</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#5b645b]">
+                    不追求喧闹展示，而强调材料、体验与长期信任。
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
