@@ -17,7 +17,7 @@ export default function Navbar() {
     { label: "首页", href: "#home", type: "anchor" },
     { label: "系列", href: "#categories", type: "anchor" },
     { label: "产品", href: "/shop", type: "link" },
-    { label: "承诺", href: "#trust", type: "anchor" },
+    { label: "品牌感", href: "#ritual", type: "anchor" },
   ];
 
   const innerLinks = [
@@ -29,26 +29,27 @@ export default function Navbar() {
   const links = isHome ? homeLinks : innerLinks;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 glass-panel">
+    <header className="sticky top-0 z-50 border-b border-[rgba(184,144,90,0.12)] glass-panel">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link to="/" className="flex min-w-0 items-center gap-3">
-          <div className="font-editorial text-[15px] font-semibold tracking-[0.01em] text-[#2f342e] sm:text-base">
-            Velure Health
-          </div>
-          <div className="hidden h-3 w-px bg-black/10 sm:block" />
-          <div className="hidden text-[11px] tracking-[0.08em] text-[#7a8378] sm:block">
-            PRIVATE WELLNESS
+          <div>
+            <div className="font-editorial text-lg font-semibold tracking-[0.03em] text-[#241914] sm:text-[1.2rem]">
+              Velure Health
+            </div>
+            <div className="hidden text-[10px] uppercase tracking-[0.24em] text-[#9a897e] sm:block">
+              Premium Intimate Wellness
+            </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-[13px] text-[#667064] md:flex">
+        <nav className="hidden items-center gap-7 text-[13px] tracking-[0.03em] text-[#6d5d52] md:flex">
           {links.map((item) =>
             item.type === "anchor" ? (
-              <a key={item.label} href={item.href} className="transition hover:text-[#2f342e]">
+              <a key={item.label} href={item.href} className="transition hover:text-[#241914]">
                 {item.label}
               </a>
             ) : (
-              <Link key={item.label} to={item.href} className="transition hover:text-[#2f342e]">
+              <Link key={item.label} to={item.href} className="transition hover:text-[#241914]">
                 {item.label}
               </Link>
             )
@@ -57,7 +58,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link to="/cart" className="nav-cart-link">
-            购物车
+            购物袋
             <span className="nav-cart-count">{cartCount}</span>
           </Link>
         </div>
@@ -67,22 +68,22 @@ export default function Navbar() {
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
           aria-expanded={mobileOpen}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/8 bg-white/80 text-sm text-[#2f342e] md:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(184,144,90,0.18)] bg-[rgba(255,251,245,0.72)] text-sm text-[#241914] md:hidden"
         >
           {mobileOpen ? "✕" : "☰"}
         </button>
       </div>
 
       {mobileOpen ? (
-        <div className="mx-4 mb-4 rounded-[1.25rem] border border-black/5 bg-white/95 p-4 ambient-shadow md:hidden sm:mx-6">
-          <div className="flex flex-col gap-1 text-sm text-[#5b645b]">
+        <div className="mx-4 mb-4 rounded-[1.4rem] border border-[rgba(184,144,90,0.12)] bg-[rgba(255,251,245,0.95)] p-4 ambient-shadow md:hidden sm:mx-6">
+          <div className="flex flex-col gap-1 text-sm text-[#65564d]">
             {links.map((item) =>
               item.type === "anchor" ? (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-xl px-3 py-3 transition hover:bg-[#f6f5f1] hover:text-[#2f342e]"
+                  className="rounded-xl px-3 py-3 transition hover:bg-[rgba(184,144,90,0.08)] hover:text-[#241914]"
                 >
                   {item.label}
                 </a>
@@ -91,27 +92,27 @@ export default function Navbar() {
                   key={item.label}
                   to={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-xl px-3 py-3 transition hover:bg-[#f6f5f1] hover:text-[#2f342e]"
+                  className="rounded-xl px-3 py-3 transition hover:bg-[rgba(184,144,90,0.08)] hover:text-[#241914]"
                 >
                   {item.label}
                 </Link>
               )
             )}
 
-            <div className="mt-3 border-t border-black/6 pt-3">
+            <div className="mt-3 border-t border-[rgba(184,144,90,0.12)] pt-3">
               <Link
                 to="/cart"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between rounded-xl bg-[#f6f5f1] px-4 py-3 text-[#2f342e]"
+                className="flex items-center justify-between rounded-xl bg-[rgba(184,144,90,0.08)] px-4 py-3 text-[#241914]"
               >
-                <span>购物车</span>
+                <span>购物袋</span>
                 <span className="nav-cart-count">{cartCount}</span>
               </Link>
 
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-3 block rounded-xl bg-[#536257] px-4 py-3 text-center text-sm text-[#ebfcee]"
+                className="mt-3 block rounded-xl bg-[#2a211d] px-4 py-3 text-center text-sm text-[#fff8f1]"
               >
                 在线咨询
               </Link>
