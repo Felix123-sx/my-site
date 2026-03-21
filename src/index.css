@@ -143,12 +143,13 @@ textarea {
   font-size: 14px;
   color: #fff8f3;
   box-shadow: 0 14px 30px rgba(89, 34, 46, 0.18);
-  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 18px 36px rgba(89, 34, 46, 0.24);
+  filter: saturate(1.06);
 }
 
 .btn-secondary {
@@ -161,12 +162,13 @@ textarea {
   font-size: 14px;
   color: var(--text);
   box-shadow: inset 0 0 0 1px rgba(111, 39, 53, 0.14);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
 
 .btn-secondary:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   background: rgba(255, 250, 246, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(111, 39, 53, 0.2), 0 14px 32px rgba(46, 24, 24, 0.08);
 }
 
 .nav-cart-link {
@@ -179,12 +181,13 @@ textarea {
   font-size: 13px;
   color: var(--text);
   box-shadow: inset 0 0 0 1px rgba(111, 39, 53, 0.12);
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-cart-link:hover {
   background: rgba(255, 251, 247, 0.94);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1px rgba(111, 39, 53, 0.16), 0 12px 28px rgba(46, 24, 24, 0.08);
 }
 
 .nav-cart-count {
@@ -208,6 +211,7 @@ textarea {
   font-size: 14px;
   color: var(--text);
   outline: none;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .input-lux::placeholder {
@@ -216,6 +220,7 @@ textarea {
 
 .input-lux:focus {
   border-bottom-color: rgba(111, 39, 53, 0.48);
+  transform: translateY(-1px);
 }
 
 .hero-glow {
@@ -224,16 +229,31 @@ textarea {
   animation: driftGlow 10s ease-in-out infinite;
 }
 
+.hero-glow-delay {
+  animation-delay: 2.4s;
+}
+
 .product-stage {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.54), transparent 26%),
     linear-gradient(145deg, #a36b77 0%, #7b3f4d 28%, #44262b 64%, #1b1314 100%);
   box-shadow: 0 26px 70px rgba(40, 20, 24, 0.16);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.product-stage:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 30px 82px rgba(40, 20, 24, 0.2);
 }
 
 .product-orb {
   background: radial-gradient(circle, rgba(255, 232, 236, 0.24) 0%, rgba(255, 232, 236, 0.08) 50%, transparent 72%);
   filter: blur(5px);
+  animation: pulseOrb 8s ease-in-out infinite;
+}
+
+.product-orb-delay {
+  animation-delay: 2s;
 }
 
 .slow-float {
@@ -245,16 +265,125 @@ textarea {
   animation-delay: 1.2s;
 }
 
+.media-shell {
+  overflow: hidden;
+  position: relative;
+}
+
+.media-zoom {
+  transition: transform 0.8s ease, filter 0.8s ease;
+  transform-origin: center center;
+}
+
+.media-sheen {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0.32;
+}
+
+.group:hover .media-zoom,
+.home-card-tilt:hover .media-zoom,
+.hover-panel:hover .media-zoom,
+.home-card-tilt:hover .media-zoom {
+  transform: scale(1.045);
+  filter: saturate(1.05);
+}
+
+.group:hover .media-sheen,
+.home-card-tilt:hover .media-sheen {
+  opacity: 0.48;
+  transform: translateY(-4px);
+}
+
+.hover-panel {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.hover-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 58px rgba(46, 24, 24, 0.08);
+}
+
+.hover-panel-dark {
+  transition: transform 0.45s ease, box-shadow 0.45s ease, background 0.45s ease;
+}
+
+.hover-panel-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 64px rgba(28, 14, 18, 0.26);
+}
+
+.home-card-tilt {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.home-card-tilt:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 54px rgba(46, 24, 24, 0.08);
+}
+
+.magnet-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.magnet-lift:hover {
+  transform: translateY(-2px);
+}
+
+.magnetic-surface {
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.magnetic-surface:hover {
+  transform: translateY(-3px);
+}
+
+.reveal-up {
+  animation: revealUp 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.18s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.28s;
+}
+
+.text-shift-soft {
+  animation: softTextShift 8s ease-in-out infinite;
+}
+
+.text-shift-soft-dark {
+  animation: softTextShiftDark 8.5s ease-in-out infinite;
+}
+
+.quote-card {
+  min-height: 220px;
+}
+
 .horizontal-scroll {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: minmax(280px, 1fr);
   overflow-x: auto;
   scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.horizontal-scroll > * {
+  scroll-snap-align: start;
 }
 
 .horizontal-scroll::-webkit-scrollbar {
   display: none;
+}
+
+.stagger-grid > * {
+  will-change: transform, opacity;
 }
 
 @keyframes slowFloat {
@@ -274,6 +403,63 @@ textarea {
   }
   50% {
     transform: translate3d(10px, -10px, 0) scale(1.06);
+  }
+}
+
+@keyframes pulseOrb {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softTextShift {
+  0%,
+  100% {
+    transform: translateY(0);
+    letter-spacing: -0.03em;
+  }
+  50% {
+    transform: translateY(-1px);
+    letter-spacing: -0.028em;
+  }
+}
+
+@keyframes softTextShiftDark {
+  0%,
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    transform: translateY(-1px);
+    text-shadow: 0 8px 24px rgba(255, 240, 244, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
 
