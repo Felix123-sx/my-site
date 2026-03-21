@@ -20,7 +20,7 @@ export default function CartPage() {
 
       <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
         <section className="max-w-3xl">
-          <div className="eyebrow">Bag</div>
+          <div className="eyebrow">购物袋</div>
           <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
             购物袋
           </h1>
@@ -32,7 +32,7 @@ export default function CartPage() {
         <section className="mt-10">
           {cartItems.length === 0 ? (
             <div className="tone-card rounded-[2rem] p-8 md:p-10">
-              <div className="eyebrow">Empty Bag</div>
+              <div className="eyebrow">购物袋为空</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
                 你还没有加入任何商品
               </h2>
@@ -134,7 +134,7 @@ export default function CartPage() {
               </div>
 
               <aside className="tone-low h-fit rounded-[2rem] p-6">
-                <div className="eyebrow">Summary</div>
+                <div className="eyebrow">订单摘要</div>
                 <h2 className="font-editorial mt-5 text-4xl font-semibold text-[#241914]">
                   订单摘要
                 </h2>
@@ -160,7 +160,7 @@ export default function CartPage() {
                 <Link to="/contact" className="btn-secondary mt-3 w-full">在线咨询</Link>
 
                 <div className="tone-card mt-6 rounded-[1.35rem] p-4">
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Note</div>
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">说明</div>
                   <p className="mt-2 text-sm leading-7 text-[#65564d]">
                     当前购物流程为前端演示版，价格与商品信息仅用于展示。
                   </p>

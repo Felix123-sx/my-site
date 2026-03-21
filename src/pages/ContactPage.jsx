@@ -23,7 +23,7 @@ export default function ContactPage() {
       <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
         <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
-            <div className="eyebrow">Private Consultation</div>
+            <div className="eyebrow">私密咨询</div>
             <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
               在线咨询
             </h1>
@@ -34,7 +34,7 @@ export default function ContactPage() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="tone-card rounded-[1.5rem] p-5 md:p-6">
-                <div className="eyebrow">Email</div>
+                <div className="eyebrow">邮箱联系</div>
                 <div className="font-editorial mt-4 break-all text-[1.9rem] font-semibold text-[#241914]">
                   support@velurehealth.com
                 </div>
@@ -44,7 +44,7 @@ export default function ContactPage() {
               </div>
 
               <div className="tone-card rounded-[1.5rem] p-5 md:p-6">
-                <div className="eyebrow">Messaging</div>
+                <div className="eyebrow">即时沟通</div>
                 <div className="font-editorial mt-4 text-[1.9rem] font-semibold text-[#241914]">
                   WeChat / Telegram
                 </div>
@@ -55,7 +55,7 @@ export default function ContactPage() {
             </div>
 
             <div className="tone-low mt-8 rounded-[2rem] p-5 md:p-8">
-              <div className="eyebrow">FAQ</div>
+              <div className="eyebrow">常见问题</div>
               <div className="mt-5 space-y-4">
                 {faqs.map((item) => (
                   <div key={item.q} className="tone-card rounded-[1.3rem] p-5">
@@ -72,9 +72,9 @@ export default function ContactPage() {
           </div>
 
           <div className="tone-mid h-fit rounded-[2rem] p-5 md:p-8">
-            <div className="eyebrow">Inquiry Form</div>
+            <div className="eyebrow">咨询表单</div>
             <h2 className="font-editorial mt-5 text-4xl font-semibold text-[#241914] md:text-5xl">
-              Tell us what feels right for you
+              告诉我们你的偏好
             </h2>
             <p className="mt-4 text-sm leading-8 text-[#65564d]">
               先留下简单信息即可，后续可以再逐步接入真实表单与客服系统。

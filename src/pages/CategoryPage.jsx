@@ -36,7 +36,7 @@ export default function CategoryPage() {
         </div>
 
         <section className="mt-8 max-w-4xl">
-          <div className="eyebrow">Series</div>
+          <div className="eyebrow">产品系列</div>
           <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
             {decodedCategory}
           </h1>
@@ -50,7 +50,7 @@ export default function CategoryPage() {
             <>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#9a897e]">Selection</div>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#9a897e]">当前展示</div>
                   <h2 className="font-editorial mt-2 text-4xl font-semibold text-[#241914]">
                     该系列下的精选产品
                   </h2>
@@ -68,7 +68,7 @@ export default function CategoryPage() {
             </>
           ) : (
             <div className="tone-card rounded-[1.8rem] p-8 md:p-10">
-              <div className="eyebrow">No Products</div>
+              <div className="eyebrow">暂无产品</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">
                 该系列下暂时没有产品
               </h2>

@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
       <div className="mt-6 flex items-end justify-between gap-4">
         <div>
           <div className="text-[11px] uppercase tracking-[0.2em] text-[#9a897e]">
-            Price
+            价格
           </div>
           <div className="mt-1 text-lg font-semibold text-[#241914]">
             {product.price}
