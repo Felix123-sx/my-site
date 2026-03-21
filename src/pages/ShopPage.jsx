@@ -48,18 +48,18 @@ export default function ShopPage() {
           <div className="max-w-4xl">
             <div className="eyebrow">产品系列</div>
             <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
-              Curated intimate essentials
+              精选私密健康系列
             </h1>
-            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#65564d] md:text-base">
-              以更高端的生活方式语气整理产品，让浏览本身也保持安静、自然与质感。
+            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
+              以更温和、更成熟的品牌语气整理系列，让浏览保持安静、清晰，也更值得信任。
             </p>
           </div>
 
           <div className="tone-mid rounded-[1.8rem] p-5 md:p-6">
-            <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Browse Mood</div>
-            <p className="mt-3 text-sm leading-8 text-[#65564d]">
+            <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Browse Mood</div>
+            <p className="mt-3 text-sm leading-8 text-[#66524f]">
               保持精致、低噪音与更清晰的产品浏览路径，
-              让筛选和比较也延续品牌感，而不是打断它。
+              让筛选和比较也延续 intimate luxury 的情绪，而不是打断它。
             </p>
           </div>
         </section>
@@ -67,7 +67,7 @@ export default function ShopPage() {
         <section className="tone-low mt-10 rounded-[2rem] p-5 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1fr_220px] lg:items-end">
             <div>
-              <div className="text-sm text-[#65564d]">搜索产品</div>
+              <div className="text-sm text-[#66524f]">搜索产品</div>
               <input
                 type="text"
                 placeholder="搜索名称、分类或关键词"
@@ -78,7 +78,7 @@ export default function ShopPage() {
             </div>
 
             <div>
-              <div className="text-sm text-[#65564d]">排序方式</div>
+              <div className="text-sm text-[#66524f]">排序方式</div>
               <select value={sortType} onChange={(e) => setSortType(e.target.value)} className="input-lux mt-3">
                 <option value="default">默认排序</option>
                 <option value="price-asc">价格从低到高</option>
@@ -88,7 +88,7 @@ export default function ShopPage() {
           </div>
 
           <div className="mt-8">
-            <div className="mb-3 text-sm text-[#65564d]">分类筛选</div>
+            <div className="mb-3 text-sm text-[#66524f]">分类筛选</div>
             <div className="flex flex-wrap gap-2.5">
               {filters.map((filter) => {
                 const isActive = activeFilter === filter;
@@ -98,8 +98,8 @@ export default function ShopPage() {
                     onClick={() => setActiveFilter(filter)}
                     className={`rounded-full px-4 py-2 text-sm transition ${
                       isActive
-                        ? "bg-[#2a211d] text-[#fff8f1]"
-                        : "bg-[rgba(255,252,248,0.82)] text-[#241914] shadow-[inset_0_0_0_1px_rgba(184,144,90,0.14)] hover:bg-[rgba(184,144,90,0.08)]"
+                        ? "bg-[#5f2330] text-[#fff8f3]"
+                        : "bg-[rgba(255,251,247,0.84)] text-[#241914] shadow-[inset_0_0_0_1px_rgba(111,39,53,0.12)] hover:bg-[rgba(111,39,53,0.08)]"
                     }`}
                   >
                     {filter}
@@ -113,12 +113,12 @@ export default function ShopPage() {
         <section className="mt-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <div className="text-sm uppercase tracking-[0.16em] text-[#9a897e]">当前展示</div>
+              <div className="text-sm uppercase tracking-[0.16em] text-[#98827e]">当前展示</div>
               <h2 className="font-editorial mt-2 text-4xl font-semibold text-[#241914]">
                 {activeFilter === "全部" ? "全部产品" : `${activeFilter} 系列`}
               </h2>
             </div>
-            <div className="text-sm text-[#65564d]">
+            <div className="text-sm text-[#66524f]">
               共 <span className="font-semibold text-[#241914]">{filteredProducts.length}</span> 件
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function ShopPage() {
             <div className="tone-card rounded-[1.8rem] p-8 md:p-10">
               <div className="eyebrow">暂无结果</div>
               <h3 className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">没有找到符合条件的产品</h3>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#65564d]">可以尝试切换分类、清空关键词，或恢复默认排序。</p>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#66524f]">可以尝试切换分类、清空关键词，或恢复默认排序。</p>
               <div className="mt-6">
                 <button
                   onClick={() => {

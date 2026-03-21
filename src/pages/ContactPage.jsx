@@ -27,7 +27,7 @@ export default function ContactPage() {
             <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
               在线咨询
             </h1>
-            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#65564d] md:text-base">
+            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
               如果你对产品、材质、使用场景或隐私包装有疑问，
               我们会以更温和、专业、尊重边界的方式协助你完成选择。
             </p>
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 <div className="font-editorial mt-4 break-all text-[1.9rem] font-semibold text-[#241914]">
                   support@velurehealth.com
                 </div>
-                <p className="mt-4 text-sm leading-7 text-[#65564d]">
+                <p className="mt-4 text-sm leading-7 text-[#66524f]">
                   适合发送更详细的问题、产品偏好或售后咨询。
                 </p>
               </div>
@@ -48,8 +48,8 @@ export default function ContactPage() {
                 <div className="font-editorial mt-4 text-[1.9rem] font-semibold text-[#241914]">
                   WeChat / Telegram
                 </div>
-                <p className="mt-4 text-sm leading-7 text-[#65564d]">
-                  后续也可以接入即时沟通渠道，提供更自然的咨询体验。
+                <p className="mt-4 text-sm leading-7 text-[#66524f]">
+                  也可作为后续即时沟通入口，提供更自然、更私密的咨询体验。
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                     <h2 className="font-editorial text-2xl font-semibold text-[#241914] md:text-[2rem]">
                       {item.q}
                     </h2>
-                    <p className="mt-3 text-sm leading-7 text-[#65564d]">
+                    <p className="mt-3 text-sm leading-7 text-[#66524f]">
                       {item.a}
                     </p>
                   </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
             <h2 className="font-editorial mt-5 text-4xl font-semibold text-[#241914] md:text-5xl">
               告诉我们你的偏好
             </h2>
-            <p className="mt-4 text-sm leading-8 text-[#65564d]">
+            <p className="mt-4 text-sm leading-8 text-[#66524f]">
               先留下简单信息即可，后续可以再逐步接入真实表单与客服系统。
             </p>
 

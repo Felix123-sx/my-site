@@ -12,7 +12,7 @@ export default function ProductDetail() {
 
   const benefits = ["隐私包装", "甄选材质", "舒适体验", "更克制的表达方式"];
   const details = [
-    { label: "适用场景", value: "日常护理 / intimate wellness" },
+    { label: "适用场景", value: "日常护理与私密健康场景" },
     { label: "包装方式", value: "隐私包装发货" },
     { label: "品牌语气", value: "克制、柔和、值得信任" },
     { label: "推荐人群", value: "重视设计感与舒适体验的人群" },
@@ -23,7 +23,7 @@ export default function ProductDetail() {
       <Navbar />
 
       <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-[#7d675a]">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-[#7e6865]">
           <Link to="/" className="hover:text-[#241914]">首页</Link>
           <span>/</span>
           <Link to={`/category/${encodeURIComponent(product.category)}`} className="hover:text-[#241914]">
@@ -36,15 +36,15 @@ export default function ProductDetail() {
         <section className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
             <div className="relative overflow-hidden rounded-[2rem]">
-              <div className="aspect-[4/5] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_28%),linear-gradient(145deg,#efd9ba_0%,#cfb096_25%,#8f6c5d_58%,#2c211d_100%)]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,14,12,0.26)] via-transparent to-[rgba(255,255,255,0.16)]" />
+              <div className="aspect-[4/5] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.58),transparent_28%),linear-gradient(145deg,#b17a85_0%,#7f4451_30%,#48292f_64%,#191214_100%)]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(21,14,15,0.24)] via-transparent to-[rgba(255,255,255,0.12)]" />
             </div>
 
             <div className="mt-4 grid grid-cols-4 gap-3">
-              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#f2dfca,#bf9a72)]" />
-              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#f7ebdf,#ceb39a)]" />
-              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#ead6c0,#8f6d5b)]" />
-              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#f6ede4,#baa08e)]" />
+              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#c18b95,#834755)]" />
+              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#edd8d7,#a06e79)]" />
+              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#d4afb3,#633742)]" />
+              <div className="tone-card aspect-square rounded-[1rem] bg-[linear-gradient(145deg,#f3e7e3,#8c5d67)]" />
             </div>
           </div>
 
@@ -53,7 +53,7 @@ export default function ProductDetail() {
             <h1 className="font-editorial mt-5 text-5xl font-semibold leading-none text-[#241914] md:text-7xl">
               {product.name}
             </h1>
-            <p className="mt-6 max-w-xl text-sm leading-8 text-[#65564d] md:text-base">
+            <p className="mt-6 max-w-xl text-sm leading-8 text-[#66524f] md:text-base">
               {product.intro}
             </p>
             <div className="mt-7 text-3xl font-semibold text-[#241914] md:text-4xl">{product.price}</div>
@@ -67,10 +67,10 @@ export default function ProductDetail() {
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-              <div className="flex items-center rounded-full bg-[rgba(255,252,248,0.82)] px-2 py-2 shadow-[inset_0_0_0_1px_rgba(184,144,90,0.14)]">
-                <button className="h-10 w-10 rounded-full text-sm text-[#65564d]" onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}>−</button>
+              <div className="flex items-center rounded-full bg-[rgba(255,251,247,0.82)] px-2 py-2 shadow-[inset_0_0_0_1px_rgba(111,39,53,0.12)]">
+                <button className="h-10 w-10 rounded-full text-sm text-[#66524f]" onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}>−</button>
                 <div className="min-w-[44px] text-center text-sm text-[#241914]">{quantity}</div>
-                <button className="h-10 w-10 rounded-full text-sm text-[#65564d]" onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+                <button className="h-10 w-10 rounded-full text-sm text-[#66524f]" onClick={() => setQuantity((prev) => prev + 1)}>+</button>
               </div>
 
               <button className="btn-secondary" onClick={() => addToCart(product, quantity)}>加入购物袋</button>
@@ -78,10 +78,10 @@ export default function ProductDetail() {
             </div>
 
             <div className="tone-low mt-8 rounded-[1.8rem] p-6">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-[#9a897e]">隐私配送</div>
-              <p className="mt-3 text-sm leading-8 text-[#65564d]">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-[#98827e]">隐私配送</div>
+              <p className="mt-3 text-sm leading-8 text-[#66524f]">
                 所有订单均采用隐私包装发货，外箱不显示敏感商品信息。
-                我们希望整段购买过程都保持 calm, discreet and premium。
+                我们希望整段购买过程都保持安静、克制，也更值得信任。
               </p>
             </div>
           </div>
@@ -93,11 +93,11 @@ export default function ProductDetail() {
             <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-5xl">
               A premium object, not a noisy commodity
             </h2>
-            <p className="mt-5 text-sm leading-8 text-[#65564d] md:text-base">
+            <p className="mt-5 text-sm leading-8 text-[#66524f] md:text-base">
               这件产品被呈现为一个更高价值的日常对象：它不依赖夸张刺激的语言，
               而是通过更成熟的设计感、材料表达与使用体验，建立欲望与信任。
             </p>
-            <p className="mt-4 text-sm leading-8 text-[#65564d] md:text-base">
+            <p className="mt-4 text-sm leading-8 text-[#66524f] md:text-base">
               我们更在意它是否足够舒适、是否容易融入真实生活、是否能以更自然的方式被选择。
             </p>
           </div>
@@ -107,8 +107,8 @@ export default function ProductDetail() {
               <div className="eyebrow">关键信息</div>
               <div className="mt-5 space-y-4">
                 {details.map((item) => (
-                  <div key={item.label} className="flex items-start justify-between gap-4 border-b border-[rgba(184,144,90,0.14)] pb-4 last:border-b-0 last:pb-0">
-                    <span className="text-sm text-[#9a897e]">{item.label}</span>
+                  <div key={item.label} className="flex items-start justify-between gap-4 border-b border-[rgba(111,39,53,0.12)] pb-4 last:border-b-0 last:pb-0">
+                    <span className="text-sm text-[#98827e]">{item.label}</span>
                     <span className="max-w-[58%] text-right text-sm text-[#241914]">{item.value}</span>
                   </div>
                 ))}
@@ -117,7 +117,7 @@ export default function ProductDetail() {
 
             <div className="tone-card rounded-[1.8rem] p-6">
               <div className="eyebrow">护理与支持</div>
-              <p className="mt-4 text-sm leading-8 text-[#65564d]">
+              <p className="mt-4 text-sm leading-8 text-[#66524f]">
                 如需进一步了解材质、使用场景、日常清洁或搭配建议，
                 你可以通过在线咨询获取更私密、温和的支持。
               </p>

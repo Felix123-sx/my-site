@@ -3,118 +3,189 @@ import Navbar from "../components/Navbar";
 import { products } from "../data/products";
 
 export default function Home() {
-  const categories = [
+  const needs = [
     {
-      title: "情侣关怀",
-      description: "为关系中的亲密感与舒适度提供更柔和的选择。",
+      title: "初次尝试",
+      description: "从更低门槛、温和友好的产品开始，建立舒适体验。",
+      href: "/category/%E6%B6%A6%E6%BB%91%E6%8A%A4%E7%90%86",
     },
     {
-      title: "润滑护理",
-      description: "温和、顺滑、身体友好的日常 intimate care。",
+      title: "伴侣关系",
+      description: "更适合共同探索、礼赠与关系场景的精选组合。",
+      href: "/category/%E6%83%85%E4%BE%A3%E5%85%B3%E6%80%80",
     },
     {
-      title: "私密健康",
-      description: "从护理、安全感与日常仪式感出发的基础系列。",
-    },
-    {
-      title: "精选器具",
-      description: "克制的设计语言与更成熟的产品审美。",
+      title: "日常护理",
+      description: "围绕私密健康与身体友好，建立日常护理秩序。",
+      href: "/category/%E7%A7%81%E5%AF%86%E5%81%A5%E5%BA%B7",
     },
   ];
 
-  const trustPoints = ["隐私包装", "甄选材质", "柔和表达", "安心售后"];
+  const trustPoints = ["隐私包装", "身体友好材料", "安全支付", "清晰护理说明"];
   const featuredProducts = products.slice(0, 3);
+  const bestSellers = products.slice(1, 5);
   const testimonials = [
-    "“像一个真正有审美的 wellness 品牌，而不是普通成人商城。”",
-    "“页面很安静，信息很克制，浏览时没有被冒犯的感觉。”",
-    "“产品呈现更像设计对象，让人更容易信任和下单。”",
+    "“更像高端 wellness 品牌，而不是传统成人电商。”",
+    "“浏览体验很安静，产品也更容易被信任。”",
+    "“视觉上有情绪，但转化路径也很清楚。”",
   ];
+  const faqs = [
+    {
+      q: "是否支持隐私包装？",
+      a: "支持。所有订单均采用隐私包装发货，外箱不显示敏感商品信息。",
+    },
+    {
+      q: "新手适合从哪类产品开始？",
+      a: "通常建议先从润滑护理或更温和的护理型产品开始，更容易建立舒适体验。",
+    },
+    {
+      q: "如果我不确定怎么选？",
+      a: "你可以先浏览按需求划分的入口，或直接前往咨询页面获取更私密的建议。",
+    },
+  ];
+  const heroProduct = products[0];
 
   return (
     <div className="min-h-screen tone-base text-[#261b17]">
       <Navbar />
 
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
-            <div className="max-w-3xl">
-              <div className="eyebrow">Velure Health · Private Wellness</div>
+        <section id="home" className="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 md:pb-24 md:pt-14">
+          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:gap-8">
+            <div className="tone-mid relative overflow-hidden rounded-[2.2rem] p-6 sm:p-8 md:p-10 lg:min-h-[720px]">
+              <div className="hero-glow absolute -right-10 top-0 h-52 w-52 rounded-full" />
+              <div className="hero-glow absolute bottom-10 left-0 h-36 w-36 rounded-full" />
 
-              <h1 className="font-editorial editorial-hero mt-6 max-w-5xl text-5xl font-semibold text-[#241914] sm:text-6xl md:text-7xl lg:text-[5.8rem]">
-                Luxury intimate care,
-                <span className="mt-2 block text-[#b28958]">shaped with softness and restraint</span>
-              </h1>
+              <div className="relative flex h-full flex-col justify-between">
+                <div>
+                  <div className="eyebrow">Velure Health · Intimate Luxury</div>
+                  <h1 className="font-editorial editorial-hero mt-6 max-w-4xl text-5xl font-semibold text-[#241914] sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+                    A warmer, deeper product mood,
+                    <span className="mt-2 block text-[#6f2735]">built for desire, trust, and conversion</span>
+                  </h1>
+                  <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] sm:text-base md:text-[1.02rem]">
+                    品牌气质仍然重要，但首页现在更直接地服务产品发现与购买决策。
+                    通过更有情绪的酒红色调、动态产品展示与清晰入口，提升浏览与转化效率。
+                  </p>
 
-              <p className="mt-7 max-w-2xl text-sm leading-8 text-[#65564d] sm:text-base md:text-[1.02rem]">
-                Velure Health 以更柔和、更高级的方式呈现成人 wellness。
-                我们把页面、产品与品牌语气统一成更克制的体验——像一本生活方式杂志，而不是喧闹的商品陈列。
-              </p>
-
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link to="/shop" className="btn-primary">探索产品</Link>
-                <Link to="/about" className="btn-secondary">了解品牌</Link>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-2.5">
-                {trustPoints.map((item) => (
-                  <div key={item} className="pill-soft">{item}</div>
-                ))}
-              </div>
-            </div>
-
-            <div className="tone-mid overflow-hidden rounded-[2rem] p-4 sm:p-5 md:p-6">
-              <div className="relative overflow-hidden rounded-[1.6rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.6),transparent_26%),linear-gradient(140deg,#eedcc5_0%,#ccb09a_28%,#7f6456_62%,#342724_100%)] p-6 sm:p-8 md:min-h-[620px] md:p-10">
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(24,14,11,0.24)] via-transparent to-[rgba(255,255,255,0.12)]" />
-
-                <div className="relative flex h-full flex-col justify-between">
-                  <div>
-                    <div className="eyebrow">品牌氛围</div>
-                    <div className="font-editorial mt-5 max-w-md text-3xl font-semibold leading-[1.05] text-[#fff7ef] md:text-5xl">
-                      Soft cinematic light.
-                      <span className="mt-2 block text-[#f4ddbf]">Quiet sensuality.</span>
-                    </div>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Link to={`/product/${heroProduct.id}`} className="btn-primary">立即查看主推产品</Link>
+                    <Link to="/shop" className="btn-secondary">浏览全部产品</Link>
                   </div>
 
-                  <div className="mt-16 max-w-sm rounded-[1.35rem] bg-[rgba(255,248,240,0.14)] p-5 backdrop-blur-sm md:mt-24">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-[#f5dfc4]">品牌方向</div>
-                    <p className="mt-3 text-sm leading-7 text-[#fff3e8] md:text-base">
-                      更大的留白、更温暖的中性色、更克制的金色点缀，
-                      让体验更像 premium lifestyle brand。
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    {trustPoints.map((item) => (
+                      <div key={item} className="pill-soft">{item}</div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10 grid gap-4 sm:grid-cols-[1.15fr_0.85fr]">
+                  <Link
+                    to={`/product/${heroProduct.id}`}
+                    className="tone-card rounded-[1.5rem] p-5 transition duration-300 hover:-translate-y-[2px]"
+                  >
+                    <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Hero Product</div>
+                    <div className="font-editorial mt-3 text-3xl font-semibold text-[#241914]">
+                      {heroProduct.name}
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-[#66524f]">{heroProduct.desc}</p>
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="text-lg font-semibold text-[#241914]">{heroProduct.price}</span>
+                      <span className="text-sm text-[#7e6865]">查看详情</span>
+                    </div>
+                  </Link>
+
+                  <div className="rounded-[1.5rem] bg-[rgba(43,24,27,0.94)] p-5 text-[#f7efeb]">
+                    <div className="text-[11px] uppercase tracking-[0.18em] text-[#d8bcc4]">Current Focus</div>
+                    <p className="font-editorial mt-3 text-3xl leading-[1.1]">
+                      Wine depth.
+                      <span className="block text-[#edcfd7]">Quiet persuasion.</span>
+                    </p>
+                    <p className="mt-4 text-sm leading-7 text-[#ead9dd]">
+                      更深的情绪色调，让首页像一个更成熟、更亲密的 premium commerce experience。
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div className="grid gap-5 lg:grid-rows-[1.2fr_0.8fr]">
+              <Link
+                to={`/product/${heroProduct.id}`}
+                className="product-stage slow-float relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
+              >
+                <div className="product-orb absolute left-[8%] top-[8%] h-16 w-16 rounded-full" />
+                <div className="product-orb absolute bottom-[12%] right-[10%] h-20 w-20 rounded-full" />
+                <div className="relative flex h-full flex-col justify-between">
+                  <div>
+                    <div className="eyebrow">主推展示</div>
+                    <div className="font-editorial mt-4 max-w-sm text-4xl font-semibold leading-[1.02] text-[#fff8f4] md:text-5xl">
+                      更像一件被认真陈列的对象，
+                      <span className="block text-[#f0d6dd]">有物感，也更以产品为中心</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-10 flex items-end justify-between gap-4">
+                    <div>
+                      <div className="text-[11px] uppercase tracking-[0.18em] text-[#e3cbd1]">Featured</div>
+                      <div className="mt-2 text-sm text-[#f7eceb]">{heroProduct.name}</div>
+                    </div>
+                    <div className="text-sm text-[#f7eceb]">立即进入</div>
+                  </div>
+                </div>
+              </Link>
+
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {featuredProducts.slice(1, 3).map((product, index) => (
+                  <Link
+                    key={product.id}
+                    to={`/product/${product.id}`}
+                    className={`tone-card rounded-[1.6rem] p-4 transition duration-300 hover:-translate-y-[2px] ${index === 0 ? "slow-float" : "slow-float-delayed"}`}
+                  >
+                    <div className="aspect-[4/3] rounded-[1.2rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.5),transparent_28%),linear-gradient(145deg,#b8848d_0%,#7e4652_34%,#4c3036_72%,#211719_100%)]" />
+                    <div className="mt-4">
+                      <div className="eyebrow">{product.tag}</div>
+                      <div className="font-editorial mt-3 text-3xl font-semibold text-[#241914]">{product.name}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="featured" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-24">
-          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <section id="featured" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <div className="eyebrow">精选推荐</div>
+              <div className="eyebrow">动态精选</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
-                Curated bestsellers with a softer retail rhythm
+                更有节奏感的产品展示
               </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
+                首页不再只是品牌陈述，而是一个更直接的产品 landing zone。
+              </p>
             </div>
-
-            <Link to="/shop" className="text-sm uppercase tracking-[0.16em] text-[#7d675a] underline underline-offset-4">
-              查看全部
+            <Link to="/shop" className="text-sm uppercase tracking-[0.16em] text-[#7e6865] underline underline-offset-4">
+              浏览全部
             </Link>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <Link key={product.id} to={`/product/${product.id}`} className="tone-card rounded-[1.7rem] p-4 transition duration-300 hover:-translate-y-[2px]">
-                <div className="aspect-[4/5] rounded-[1.3rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.65),transparent_28%),linear-gradient(145deg,#ead4b5_0%,#cba88a_32%,#87695b_70%,#2d221e_100%)]" />
+          <div className="horizontal-scroll gap-5 pb-2">
+            {featuredProducts.map((product, index) => (
+              <Link
+                key={product.id}
+                to={`/product/${product.id}`}
+                className={`tone-card min-w-[280px] rounded-[1.7rem] p-4 sm:min-w-[340px] ${index % 2 === 0 ? "slow-float" : "slow-float-delayed"}`}
+              >
+                <div className="aspect-[4/5] rounded-[1.3rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.52),transparent_28%),linear-gradient(145deg,#b98590_0%,#7c4250_32%,#482c31_70%,#1d1416_100%)]" />
                 <div className="mt-5">
                   <div className="eyebrow">{product.tag}</div>
-                  <h3 className="font-editorial mt-4 text-[2rem] font-semibold text-[#241914]">
-                    {product.name}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[#65564d]">{product.desc}</p>
+                  <h3 className="font-editorial mt-4 text-[2rem] font-semibold text-[#241914]">{product.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#66524f]">{product.desc}</p>
                   <div className="mt-5 flex items-center justify-between">
                     <span className="text-lg font-semibold text-[#241914]">{product.price}</span>
-                    <span className="text-sm text-[#7d675a]">查看详情</span>
+                    <span className="text-sm text-[#7e6865]">查看详情</span>
                   </div>
                 </div>
               </Link>
@@ -122,43 +193,57 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="categories" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-24">
-          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-3xl">
-              <div className="eyebrow">精选系列</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
-                A quieter, more elevated way to browse
-              </h2>
-            </div>
+        <section id="categories" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="mb-8 max-w-3xl">
+            <div className="eyebrow">按需求选购</div>
+            <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+              Shop by need / scenario
+            </h2>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {categories.map((category) => (
-              <Link
-                key={category.title}
-                to={`/category/${encodeURIComponent(category.title)}`}
-                className="tone-card rounded-[1.55rem] p-5 transition duration-300 hover:-translate-y-[2px]"
-              >
-                <div className="eyebrow">系列</div>
-                <div className="font-editorial mt-4 text-[1.9rem] font-semibold text-[#241914]">
-                  {category.title}
-                </div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">
-                  {category.description}
-                </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {needs.map((item) => (
+              <Link key={item.title} to={item.href} className="tone-card rounded-[1.6rem] p-6 transition duration-300 hover:-translate-y-[2px]">
+                <div className="eyebrow">场景入口</div>
+                <div className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">{item.title}</div>
+                <p className="mt-4 text-sm leading-8 text-[#66524f]">{item.description}</p>
               </Link>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 md:pb-20">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="mb-8 max-w-3xl">
+            <div className="eyebrow">畅销推荐</div>
+            <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+              更值得优先了解的畅销选择
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {bestSellers.map((product) => (
+              <Link key={product.id} to={`/product/${product.id}`} className="tone-card rounded-[1.5rem] p-4 transition duration-300 hover:-translate-y-[2px]">
+                <div className="aspect-[4/5] rounded-[1.2rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.5),transparent_28%),linear-gradient(145deg,#ba8790_0%,#824855_34%,#4d2e34_74%,#1c1416_100%)]" />
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <div>
+                    <div className="font-editorial text-[1.8rem] font-semibold text-[#241914]">{product.name}</div>
+                    <div className="mt-1 text-sm text-[#66524f]">{product.price}</div>
+                  </div>
+                  <span className="text-sm text-[#7e6865]">进入</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
             <div className="tone-low rounded-[2rem] p-6 md:p-8">
-              <div className="eyebrow">信任与材质</div>
+              <div className="eyebrow">信任信号</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-5xl">
                 让信任自然发生，而不是被用力强调
               </h2>
-              <p className="mt-4 text-sm leading-8 text-[#65564d]">
+              <p className="mt-4 text-sm leading-8 text-[#66524f]">
                 我们把 body-safe materials、隐私包装、安心售后与清晰说明融入浏览与购买路径，
                 让信任内容始终可见，但不过度打断体验。
               </p>
@@ -166,68 +251,111 @@ export default function Home() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="tone-card rounded-[1.4rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Materials</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">身体友好材料与更舒适的日常使用体验。</p>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Materials</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">身体友好材料与更舒适的日常使用体验。</p>
               </div>
               <div className="tone-card rounded-[1.4rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Discreet Packaging</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">所有订单均采用隐私包装发货，减少额外心理负担。</p>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Discreet Packaging</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">所有订单均采用隐私包装发货，减少额外心理负担。</p>
               </div>
               <div className="tone-card rounded-[1.4rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Care</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">更清楚的说明、更平和的语气、更少羞耻感触发。</p>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Care</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">更清楚的说明、更平和的语气、更少羞耻感触发。</p>
               </div>
               <div className="tone-card rounded-[1.4rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Support</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">需要帮助时，始终能找到明确、安静而专业的支持。</p>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Support</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">需要帮助时，始终能找到明确、安静而专业的支持。</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="ritual" className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 md:pb-20">
+        <section id="ritual" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
           <div className="tone-low rounded-[2rem] px-5 py-8 sm:px-8 md:px-10 md:py-12">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
-                <div className="eyebrow">品牌气质</div>
+                <div className="eyebrow">品牌叙事</div>
                 <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
-                  Premium adult wellness,
-                  <span className="block text-[#b28958]">without the visual noise</span>
+                  Intimate luxury,
+                  <span className="block text-[#6f2735]">with a product-first rhythm</span>
                 </h2>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="tone-card rounded-[1.3rem] p-5">
                   <h3 className="font-editorial text-2xl font-semibold text-[#241914]">视觉克制</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#65564d]">
-                    留白优先，避免促销感与过度刺激式展示。
-                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[#66524f]">留白优先，避免促销感与过度刺激式展示。</p>
                 </div>
                 <div className="tone-card rounded-[1.3rem] p-5">
-                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">暖调质感</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#65564d]">
-                    以柔和中性色与轻金色点缀建立高端气质。
-                  </p>
+                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">产品优先</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#66524f]">品牌 mood 服务于产品展示与转化，而不是取代它。</p>
                 </div>
                 <div className="tone-card rounded-[1.3rem] p-5">
-                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">生活方式表达</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#65564d]">
-                    让品牌更像 editorial wellness，而非普通商城模板。
-                  </p>
+                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">动态节奏</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#66524f]">轻量、缓慢、优雅的动态让首页更像 living commerce experience。</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 pb-18 sm:px-6 md:pb-28">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="mb-8 max-w-3xl">
+            <div className="eyebrow">评价与口碑</div>
+            <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+              Social proof in a calmer voice
+            </h2>
+          </div>
+
           <div className="grid gap-4 md:grid-cols-3">
             {testimonials.map((quote) => (
               <div key={quote} className="tone-card rounded-[1.5rem] p-6">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Review</div>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Review</div>
                 <p className="mt-4 font-editorial text-2xl leading-[1.2] text-[#241914]">{quote}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+            <div>
+              <div className="eyebrow">FAQ / Learn More</div>
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+                减少不确定感，提升购买信心
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((item) => (
+                <div key={item.q} className="tone-card rounded-[1.4rem] p-5">
+                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">{item.q}</h3>
+                  <p className="mt-3 text-sm leading-8 text-[#66524f]">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 md:pb-28">
+          <div className="tone-mid rounded-[2rem] px-6 py-8 md:px-10 md:py-12">
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div className="max-w-3xl">
+                <div className="eyebrow">开始选购</div>
+                <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+                  从一件产品开始，
+                  <span className="block text-[#6f2735]">进入更完整的品牌体验</span>
+                </h2>
+                <p className="mt-4 text-sm leading-8 text-[#66524f] md:text-base">
+                  现在进入产品页，开始一次更高端、更克制、也更容易信任的私密健康购物体验。
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <Link to="/shop" className="btn-primary">立即选购</Link>
+                <Link to="/about" className="btn-secondary">阅读品牌故事</Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

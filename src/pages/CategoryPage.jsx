@@ -29,7 +29,7 @@ export default function CategoryPage() {
       <Navbar />
 
       <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-[#7d675a]">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-[#7e6865]">
           <Link to="/" className="hover:text-[#241914]">首页</Link>
           <span>/</span>
           <span className="text-[#241914]">{decodedCategory}</span>
@@ -40,7 +40,7 @@ export default function CategoryPage() {
           <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
             {decodedCategory}
           </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-8 text-[#65564d] md:text-base">
+          <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
             {description}
           </p>
         </section>
@@ -50,12 +50,12 @@ export default function CategoryPage() {
             <>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#9a897e]">当前展示</div>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#98827e]">当前展示</div>
                   <h2 className="font-editorial mt-2 text-4xl font-semibold text-[#241914]">
                     该系列下的精选产品
                   </h2>
                 </div>
-                <div className="text-sm text-[#65564d]">
+                <div className="text-sm text-[#66524f]">
                   共 <span className="font-semibold text-[#241914]">{filteredProducts.length}</span> 件
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function CategoryPage() {
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">
                 该系列下暂时没有产品
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#65564d]">
+              <p className="mt-4 text-sm leading-7 text-[#66524f]">
                 当前数据里还没有对应商品，你可以先浏览全部产品或返回首页。
               </p>
 

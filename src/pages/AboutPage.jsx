@@ -25,22 +25,22 @@ export default function AboutPage() {
           <div>
             <div className="eyebrow">品牌故事</div>
             <h1 className="font-editorial mt-5 text-5xl font-semibold leading-none text-[#241914] md:text-7xl">
-              A premium intimate wellness brand,
-              <span className="block text-[#b28958]">built around ritual, care, and confidence</span>
+              一个围绕亲密、护理与信任感建立的品牌，
+              <span className="block text-[#6f2735]">更温和，也更成熟</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#65564d] md:text-base">
-              Velure Health 希望把 intimate wellness 从传统成人零售语境中抽离出来，
+            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
+              Velure Health 希望把私密健康从传统成人零售语境中抽离出来，
               回到更接近 wellness、design 和 lifestyle 的品牌表达。
             </p>
           </div>
 
           <div className="tone-mid overflow-hidden rounded-[2rem] p-4 md:p-6">
-            <div className="rounded-[1.6rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.56),transparent_28%),linear-gradient(145deg,#f2dec7_0%,#d4baa1_30%,#8f7568_62%,#362927_100%)] p-8 md:min-h-[500px] md:p-10">
+            <div className="rounded-[1.6rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.46),transparent_28%),linear-gradient(145deg,#b98893_0%,#834754_28%,#4a2b31_62%,#1d1416_100%)] p-8 md:min-h-[500px] md:p-10">
               <div className="max-w-sm">
-                <div className="text-[11px] uppercase tracking-[0.22em] text-[#f5dfc4]">Brand Point of View</div>
-                <p className="mt-5 font-editorial text-3xl leading-[1.08] text-[#fff6ee] md:text-5xl">
-                  More design-led,
-                  <span className="block text-[#f1d7b4]">less category-led.</span>
+                <div className="text-[11px] uppercase tracking-[0.22em] text-[#ecd5db]">Brand Point of View</div>
+                <p className="mt-5 font-editorial text-3xl leading-[1.08] text-[#fff8f4] md:text-5xl">
+                  More intimate,
+                  <span className="block text-[#f1d6dd]">less category-led.</span>
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
               <h2 className="font-editorial text-3xl font-semibold text-[#241914]">
                 {item.title}
               </h2>
-              <p className="mt-4 text-sm leading-8 text-[#65564d]">
+              <p className="mt-4 text-sm leading-8 text-[#66524f]">
                 {item.text}
               </p>
             </div>
@@ -66,32 +66,32 @@ export default function AboutPage() {
               <div className="eyebrow">我们的方式</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
                 Body-safe, discreet,
-                <span className="block text-[#b28958]">and emotionally intelligent</span>
+                <span className="block text-[#6f2735]">and emotionally intelligent</span>
               </h2>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Materials</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Materials</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">
                   更强调身体友好材料、舒适触感与长期使用体验。
                 </p>
               </div>
               <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Packaging</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Packaging</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">
                   隐私包装与克制表达，减少不必要的羞耻感与心理负担。
                 </p>
               </div>
               <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Design</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Design</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">
                   产品被视作高价值对象，而非只强调功能参数的消耗品。
                 </p>
               </div>
               <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#9a897e]">Tone</div>
-                <p className="mt-3 text-sm leading-7 text-[#65564d]">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Tone</div>
+                <p className="mt-3 text-sm leading-7 text-[#66524f]">
                   语言更温和、智能、现代，不用粗粝或低端的行业陈词滥调。
                 </p>
               </div>
