@@ -39,23 +39,23 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <div>
-              <div className="font-editorial text-lg font-semibold tracking-[0.03em] text-[#241914] sm:text-[1.2rem]">
+              <div className="font-editorial text-lg font-semibold tracking-[0.03em] text-[#fff4f8] sm:text-[1.2rem]">
                 Velure Health
               </div>
-              <div className="hidden text-[10px] uppercase tracking-[0.24em] text-[#98827e] sm:block">
+              <div className="hidden text-[10px] uppercase tracking-[0.24em] text-[var(--ui-kicker)] sm:block">
                 PREMIUM INTIMATE WELLNESS
               </div>
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-7 text-[13px] tracking-[0.03em] text-[#66524f] md:flex">
+          <nav className="hidden items-center gap-7 text-[13px] tracking-[0.03em] text-[var(--ui-copy)] md:flex">
             {links.map((item) =>
               item.type === "anchor" ? (
-                <a key={item.label} href={item.href} className="transition hover:text-[#241914]">
+                <a key={item.label} href={item.href} className="transition hover:text-[var(--ui-title)]">
                   {item.label}
                 </a>
               ) : (
-                <Link key={item.label} to={item.href} className="transition hover:text-[#241914]">
+                <Link key={item.label} to={item.href} className="transition hover:text-[var(--ui-title)]">
                   {item.label}
                 </Link>
               )
@@ -74,22 +74,22 @@ export default function Navbar() {
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
             aria-expanded={mobileOpen}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(111,39,53,0.16)] bg-[rgba(255,250,246,0.8)] text-sm text-[#241914] md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(111,39,53,0.16)] bg-[rgba(255,250,246,0.8)] text-sm text-[var(--ui-title)] md:hidden"
           >
             {mobileOpen ? "✕" : "☰"}
           </button>
         </div>
 
         {mobileOpen ? (
-          <div className="mx-4 mb-4 rounded-[1.4rem] border border-[rgba(111,39,53,0.12)] bg-[rgba(255,250,246,0.96)] p-4 ambient-shadow md:hidden sm:mx-6">
-            <div className="flex flex-col gap-1 text-sm text-[#66524f]">
+          <div className="mx-4 mb-4 rounded-[1.4rem] border border-[rgba(255,235,245,0.1)] bg-[rgba(255,247,251,0.94)] p-4 ambient-shadow md:hidden sm:mx-6">
+            <div className="flex flex-col gap-1 text-sm text-[#6a5863]">
               {links.map((item) =>
                 item.type === "anchor" ? (
                   <a
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="rounded-xl px-3 py-3 transition hover:bg-[rgba(111,39,53,0.08)] hover:text-[#241914]"
+                    className="rounded-xl px-3 py-3 transition hover:bg-[rgba(111,39,53,0.08)] hover:text-[var(--ui-title)]"
                   >
                     {item.label}
                   </a>
@@ -98,7 +98,7 @@ export default function Navbar() {
                     key={item.label}
                     to={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="rounded-xl px-3 py-3 transition hover:bg-[rgba(111,39,53,0.08)] hover:text-[#241914]"
+                    className="rounded-xl px-3 py-3 transition hover:bg-[rgba(111,39,53,0.08)] hover:text-[var(--ui-title)]"
                   >
                     {item.label}
                   </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
                 <Link
                   to="/cart"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between rounded-xl bg-[rgba(111,39,53,0.08)] px-4 py-3 text-[#241914]"
+                  className="flex items-center justify-between rounded-xl bg-[rgba(111,39,53,0.08)] px-4 py-3 text-[var(--ui-title)]"
                 >
                   <span>购物袋</span>
                   <span className="nav-cart-count">{cartCount}</span>

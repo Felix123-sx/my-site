@@ -17,24 +17,24 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen tone-base text-[#261b17]">
+    <div className="min-h-screen tone-base text-[var(--text)]">
       <Navbar />
 
       <main className="mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 md:pb-28 md:pt-16">
         <section className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           <div>
             <div className="eyebrow">品牌故事</div>
-            <h1 className="font-editorial mt-5 text-5xl font-semibold leading-none text-[#241914] md:text-7xl">
+            <h1 className="font-editorial mt-5 text-5xl font-semibold leading-none text-[var(--ui-title)] md:text-7xl">
               一个围绕亲密、护理与信任感建立的品牌，
               <span className="block text-[#6f2735]">更温和，也更成熟</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
+            <p className="mt-6 max-w-2xl text-sm leading-8 text-[var(--ui-copy)] md:text-base">
               Velure Health 希望把私密健康从传统成人零售语境中抽离出来，
               回到更接近 wellness、design 和 lifestyle 的品牌表达。
             </p>
           </div>
 
-          <div className="tone-mid overflow-hidden rounded-[2rem] p-4 md:p-6">
+          <div className="soft-tonal-panel overflow-hidden rounded-[2rem] p-4 md:p-6">
             <div className="rounded-[1.6rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.46),transparent_28%),linear-gradient(145deg,#b98893_0%,#834754_28%,#4a2b31_62%,#1d1416_100%)] p-8 md:min-h-[500px] md:p-10">
               <div className="max-w-sm">
                 <div className="text-[11px] uppercase tracking-[0.22em] text-[#ecd5db]">Brand Point of View</div>
@@ -49,49 +49,49 @@ export default function AboutPage() {
 
         <section className="mt-14 grid gap-4 md:grid-cols-3">
           {values.map((item) => (
-            <div key={item.title} className="tone-card rounded-[1.5rem] p-6">
-              <h2 className="font-editorial text-3xl font-semibold text-[#241914]">
+            <div key={item.title} className="soft-tonal-card rounded-[1.5rem] p-6">
+              <h2 className="font-editorial text-3xl font-semibold text-[var(--ui-title)]">
                 {item.title}
               </h2>
-              <p className="mt-4 text-sm leading-8 text-[#66524f]">
+              <p className="mt-4 text-sm leading-8 text-[var(--ui-copy)]">
                 {item.text}
               </p>
             </div>
           ))}
         </section>
 
-        <section className="mt-14 tone-low rounded-[2rem] px-6 py-8 md:px-10 md:py-12">
+        <section className="mt-14 soft-tonal-panel rounded-[2rem] px-6 py-8 md:px-10 md:py-12">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
               <div className="eyebrow">我们的方式</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl">
                 Body-safe, discreet,
                 <span className="block text-[#6f2735]">and emotionally intelligent</span>
               </h2>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Materials</div>
-                <p className="mt-3 text-sm leading-7 text-[#66524f]">
+              <div className="soft-tonal-card rounded-[1.3rem] p-5">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">Materials</div>
+                <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                   更强调身体友好材料、舒适触感与长期使用体验。
                 </p>
               </div>
-              <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Packaging</div>
-                <p className="mt-3 text-sm leading-7 text-[#66524f]">
+              <div className="soft-tonal-card rounded-[1.3rem] p-5">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">Packaging</div>
+                <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                   隐私包装与克制表达，减少不必要的羞耻感与心理负担。
                 </p>
               </div>
-              <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Design</div>
-                <p className="mt-3 text-sm leading-7 text-[#66524f]">
+              <div className="soft-tonal-card rounded-[1.3rem] p-5">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">Design</div>
+                <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                   产品被视作高价值对象，而非只强调功能参数的消耗品。
                 </p>
               </div>
-              <div className="tone-card rounded-[1.3rem] p-5">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Tone</div>
-                <p className="mt-3 text-sm leading-7 text-[#66524f]">
+              <div className="soft-tonal-card rounded-[1.3rem] p-5">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">Tone</div>
+                <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                   语言更温和、智能、现代，不用粗粝或低端的行业陈词滥调。
                 </p>
               </div>

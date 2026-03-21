@@ -25,22 +25,22 @@ export default function CategoryPage() {
     "浏览该系列下的精选产品，体验更安静、更高级的品牌表达。";
 
   return (
-    <div className="min-h-screen tone-base text-[#261b17]">
+    <div className="min-h-screen tone-base text-[var(--text)]">
       <Navbar />
 
       <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
-        <div className="flex flex-wrap items-center gap-2 text-sm text-[#7e6865]">
-          <Link to="/" className="hover:text-[#241914]">首页</Link>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--ui-kicker)]">
+          <Link to="/" className="hover:text-[var(--ui-title)]">首页</Link>
           <span>/</span>
-          <span className="text-[#241914]">{decodedCategory}</span>
+          <span className="text-[var(--ui-title)]">{decodedCategory}</span>
         </div>
 
         <section className="mt-8 max-w-4xl">
           <div className="eyebrow">产品系列</div>
-          <h1 className="font-editorial mt-5 text-5xl font-semibold text-[#241914] md:text-7xl">
+          <h1 className="font-editorial mt-5 text-5xl font-semibold text-[var(--ui-title)] md:text-7xl">
             {decodedCategory}
           </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] md:text-base">
+          <p className="mt-6 max-w-2xl text-sm leading-8 text-[var(--ui-copy)] md:text-base">
             {description}
           </p>
         </section>
@@ -50,13 +50,13 @@ export default function CategoryPage() {
             <>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-[#98827e]">当前展示</div>
-                  <h2 className="font-editorial mt-2 text-4xl font-semibold text-[#241914]">
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-[var(--ui-kicker)]">当前展示</div>
+                  <h2 className="font-editorial mt-2 text-4xl font-semibold text-[var(--ui-title)]">
                     该系列下的精选产品
                   </h2>
                 </div>
-                <div className="text-sm text-[#66524f]">
-                  共 <span className="font-semibold text-[#241914]">{filteredProducts.length}</span> 件
+                <div className="text-sm text-[var(--ui-copy)]">
+                  共 <span className="font-semibold text-[var(--ui-title)]">{filteredProducts.length}</span> 件
                 </div>
               </div>
 
@@ -67,12 +67,12 @@ export default function CategoryPage() {
               </div>
             </>
           ) : (
-            <div className="tone-card rounded-[1.8rem] p-8 md:p-10">
+            <div className="soft-tonal-card rounded-[1.8rem] p-8 md:p-10">
               <div className="eyebrow">暂无产品</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)]">
                 该系列下暂时没有产品
               </h2>
-              <p className="mt-4 text-sm leading-7 text-[#66524f]">
+              <p className="mt-4 text-sm leading-7 text-[var(--ui-copy)]">
                 当前数据里还没有对应商品，你可以先浏览全部产品或返回首页。
               </p>
 

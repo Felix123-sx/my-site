@@ -66,7 +66,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen tone-base text-[#261b17]">
+    <div className="min-h-screen tone-base text-[var(--text)]">
       <Navbar />
 
       <main>
@@ -80,11 +80,11 @@ export default function Home() {
                 <div className="reveal-up reveal-delay-1">
                   <div className="eyebrow">Velure Health · Premium Intimate Wellness</div>
 
-                  <h1 className="font-editorial editorial-hero mt-6 max-w-5xl text-5xl font-semibold text-[#241914] sm:text-6xl md:text-7xl lg:text-[5.5rem] text-shift-soft">
+                  <h1 className="font-editorial editorial-hero mt-6 max-w-5xl text-5xl font-semibold text-[var(--ui-title)] sm:text-6xl md:text-7xl lg:text-[5.5rem] text-shift-soft">
                     更有情绪，也更以产品为中心的首页体验
                   </h1>
 
-                  <p className="mt-6 max-w-2xl text-sm leading-8 text-[#66524f] sm:text-base md:text-[1.02rem]">
+                  <p className="mt-6 max-w-2xl text-sm leading-8 text-[var(--ui-copy)] sm:text-base md:text-[1.02rem]">
                     我们希望首页既能承接品牌气质，也能成为真正高效的产品入口。
                     它更清楚地展示主推产品、浏览路径与信任信息，同时保留克制、成熟、私密的品牌氛围。
                   </p>
@@ -101,16 +101,16 @@ export default function Home() {
 
                 <div className="mt-10 grid gap-4 md:grid-cols-[1.05fr_0.95fr] reveal-up reveal-delay-2">
                   <div className="tone-card rounded-[1.55rem] p-5 md:p-6 hover-panel">
-                    <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">主推产品</div>
-                    <h2 className="font-editorial mt-3 text-3xl font-semibold text-[#241914] md:text-[2.3rem]">
+                    <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">主推产品</div>
+                    <h2 className="font-editorial mt-3 text-3xl font-semibold text-[var(--ui-title)] md:text-[2.3rem]">
                       {heroProduct.name}
                     </h2>
-                    <p className="mt-3 text-sm leading-7 text-[#66524f]">
+                    <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                       {heroProduct.desc}
                     </p>
                     <div className="mt-5 flex items-center justify-between">
-                      <span className="text-lg font-semibold text-[#241914]">{heroProduct.price}</span>
-                      <Link to={`/product/${heroProduct.id}`} className="text-sm text-[#7e6865] underline underline-offset-4">
+                      <span className="text-lg font-semibold text-[var(--ui-title)]">{heroProduct.price}</span>
+                      <Link to={`/product/${heroProduct.id}`} className="text-sm text-[var(--ui-kicker)] underline underline-offset-4">
                         了解更多
                       </Link>
                     </div>
@@ -169,7 +169,7 @@ export default function Home() {
                     </div>
                     <div className="mt-4">
                       <div className="eyebrow">{product.tag}</div>
-                      <div className="font-editorial mt-3 text-3xl font-semibold text-[#241914]">
+                      <div className="font-editorial mt-3 text-3xl font-semibold text-[var(--ui-title)]">
                         {product.name}
                       </div>
                     </div>
@@ -184,20 +184,20 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <div>
               <div className="eyebrow">精选产品</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                 先看最值得优先了解的几件产品
               </h2>
             </div>
 
             <div className="tone-low rounded-[1.9rem] p-6 md:p-8 hover-panel">
-              <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">产品叙事</div>
-              <p className="mt-3 text-sm leading-8 text-[#66524f] md:text-base">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">产品叙事</div>
+              <p className="mt-3 text-sm leading-8 text-[var(--ui-copy)] md:text-base">
                 这一段更像首页中的主推章节：既让用户快速进入产品，也保留足够完整的品牌气质与视觉呼吸。
               </p>
             </div>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3 stagger-grid">
+          <div className="mt-8 grid gap-5 md:grid-cols-3 stagger-grid cinematic-section-flow">
             {featuredProducts.map((product, idx) => (
               <Link
                 key={product.id}
@@ -209,15 +209,15 @@ export default function Home() {
                 </div>
                 <div className="mt-5">
                   <div className="eyebrow">{product.tag}</div>
-                  <h3 className="font-editorial mt-4 text-[2rem] font-semibold text-[#241914]">
+                  <h3 className="font-editorial mt-4 text-[2rem] font-semibold text-[var(--ui-title)]">
                     {product.name}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-[#66524f]">
+                  <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">
                     {product.desc}
                   </p>
                   <div className="mt-5 flex items-center justify-between">
-                    <span className="text-lg font-semibold text-[#241914]">{product.price}</span>
-                    <span className="text-sm text-[#7e6865]">了解更多</span>
+                    <span className="text-lg font-semibold text-[var(--ui-title)]">{product.price}</span>
+                    <span className="text-sm text-[var(--ui-kicker)]">了解更多</span>
                   </div>
                 </div>
               </Link>
@@ -229,11 +229,11 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <div className="eyebrow">按需求开始</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                 用更清楚的方式开始浏览
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-8 text-[#66524f] md:ml-auto md:text-base">
+            <p className="max-w-xl text-sm leading-8 text-[var(--ui-copy)] md:ml-auto md:text-base">
               不把首页做成密集货架，而是先给出更容易进入的浏览路径，让用户知道自己该从哪里开始。
             </p>
           </div>
@@ -243,13 +243,13 @@ export default function Home() {
               <Link
                 key={item.title}
                 to={item.href}
-                className={`tone-card rounded-[1.7rem] p-6 home-card-tilt reveal-up reveal-delay-${Math.min(idx + 1, 3)}`}
+                className={`soft-tonal-card rounded-[1.7rem] p-6 home-card-tilt reveal-up reveal-delay-${Math.min(idx + 1, 3)}`}
               >
                 <div className="eyebrow">浏览入口</div>
-                <div className="font-editorial mt-4 text-4xl font-semibold text-[#241914]">
+                <div className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)]">
                   {item.title}
                 </div>
-                <p className="mt-4 text-sm leading-8 text-[#66524f]">
+                <p className="mt-4 text-sm leading-8 text-[var(--ui-copy)]">
                   {item.description}
                 </p>
               </Link>
@@ -262,22 +262,22 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
               <div>
                 <div className="eyebrow">信任与说明</div>
-                <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+                <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                   把信任内容作为首页中的正式章节
                 </h2>
-                <p className="mt-4 text-sm leading-8 text-[#66524f] md:text-base">
+                <p className="mt-4 text-sm leading-8 text-[var(--ui-copy)] md:text-base">
                   借用更强的品牌网站结构控制力，让信任信息不再只是几个角落标记，而是作为完整模块出现。
                 </p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {trustItems.map((item, idx) => (
-                  <div key={item.title} className={`tone-card rounded-[1.45rem] p-5 hover-panel reveal-up reveal-delay-${(idx % 3) + 1}`}>
-                    <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">Trust Signal</div>
-                    <h3 className="font-editorial mt-3 text-2xl font-semibold text-[#241914]">
+                  <div key={item.title} className={`trust-tonal-card rounded-[1.45rem] p-5 hover-panel reveal-up reveal-delay-${(idx % 3) + 1}`}>
+                    <div className="trust-kicker">Trust Signal</div>
+                    <h3 className="font-editorial mt-3 text-2xl font-semibold trust-title">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-[#66524f]">
+                    <p className="mt-3 text-sm leading-7 trust-copy">
                       {item.text}
                     </p>
                   </div>
@@ -301,12 +301,12 @@ export default function Home() {
                   </div>
                   <div className="mt-4 flex items-center justify-between gap-3">
                     <div>
-                      <div className="font-editorial text-[1.8rem] font-semibold text-[#241914]">
+                      <div className="font-editorial text-[1.8rem] font-semibold text-[var(--ui-title)]">
                         {product.name}
                       </div>
-                      <div className="mt-1 text-sm text-[#66524f]">{product.price}</div>
+                      <div className="mt-1 text-sm text-[var(--ui-copy)]">{product.price}</div>
                     </div>
-                    <span className="text-sm text-[#7e6865]">进入</span>
+                    <span className="text-sm text-[var(--ui-kicker)]">进入</span>
                   </div>
                 </Link>
               ))}
@@ -314,10 +314,10 @@ export default function Home() {
 
             <div className="tone-mid rounded-[2rem] p-6 md:p-8 hover-panel">
               <div className="eyebrow">畅销系列</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-5xl text-shift-soft">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-5xl text-shift-soft">
                 更值得优先了解的畅销选择
               </h2>
-              <p className="mt-4 text-sm leading-8 text-[#66524f] md:text-base">
+              <p className="mt-4 text-sm leading-8 text-[var(--ui-copy)] md:text-base">
                 这部分借用了更强模块化 section 的思路：用一个完整章节承接畅销产品，而不是简单地继续往下堆卡片。
               </p>
               <div className="mt-6">
@@ -331,7 +331,7 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
             <div className="tone-mid rounded-[2.15rem] p-6 md:p-8 hover-panel">
               <div className="eyebrow">品牌叙事</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                 更像一个有温度的品牌网站，
                 <span className="block text-[#6f2735]">也更像一个真正能带来转化的首页</span>
               </h2>
@@ -344,8 +344,8 @@ export default function Home() {
                 ["更柔和的转译", "借用品牌官网的结构节奏，但保留私密健康品牌需要的温度、物感与克制。"],
               ].map(([title, text], idx) => (
                 <div key={title} className={`tone-card rounded-[1.45rem] p-5 hover-panel reveal-up reveal-delay-${idx + 1}`}>
-                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#66524f]">{text}</p>
+                  <h3 className="font-editorial text-2xl font-semibold text-[var(--ui-title)]">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--ui-copy)]">{text}</p>
                 </div>
               ))}
             </div>
@@ -356,8 +356,8 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3 stagger-grid">
             {testimonials.map((quote, idx) => (
               <div key={quote} className={`tone-card rounded-[1.55rem] p-6 quote-card hover-panel reveal-up reveal-delay-${idx + 1}`}>
-                <div className="text-[11px] uppercase tracking-[0.18em] text-[#98827e]">用户反馈</div>
-                <p className="mt-4 font-editorial text-2xl leading-[1.2] text-[#241914]">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">用户反馈</div>
+                <p className="mt-4 font-editorial text-2xl leading-[1.2] text-[var(--ui-title)]">
                   {quote}
                 </p>
               </div>
@@ -369,7 +369,7 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
             <div>
               <div className="eyebrow">了解更多</div>
-              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                 减少不确定感，提升购买信心
               </h2>
             </div>
@@ -377,10 +377,10 @@ export default function Home() {
             <div className="space-y-4">
               {faqs.map((item, idx) => (
                 <div key={item.q} className={`tone-card rounded-[1.45rem] p-5 hover-panel reveal-up reveal-delay-${(idx % 3) + 1}`}>
-                  <h3 className="font-editorial text-2xl font-semibold text-[#241914]">
+                  <h3 className="font-editorial text-2xl font-semibold text-[var(--ui-title)]">
                     {item.q}
                   </h3>
-                  <p className="mt-3 text-sm leading-8 text-[#66524f]">
+                  <p className="mt-3 text-sm leading-8 text-[var(--ui-copy)]">
                     {item.a}
                   </p>
                 </div>
@@ -394,11 +394,11 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl">
                 <div className="eyebrow">开始选购</div>
-                <h2 className="font-editorial mt-4 text-4xl font-semibold text-[#241914] md:text-6xl text-shift-soft">
+                <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl text-shift-soft">
                   从一件产品开始，
                   <span className="block text-[#6f2735]">进入更完整的品牌体验</span>
                 </h2>
-                <p className="mt-4 text-sm leading-8 text-[#66524f] md:text-base">
+                <p className="mt-4 text-sm leading-8 text-[var(--ui-copy)] md:text-base">
                   现在进入产品页，开始一次更高端、更克制、也更容易信任的私密健康购物体验。
                 </p>
               </div>
