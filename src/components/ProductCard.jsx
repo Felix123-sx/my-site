@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
     <article className="soft-tonal-card group rounded-[1.6rem] p-4 sm:p-5 hover-panel home-card-tilt reveal-up">
       <div className="relative overflow-hidden rounded-[1.25rem] media-shell">
@@ -26,12 +29,21 @@ export default function ProductCard({ product }) {
           <div className="mt-1 text-lg font-semibold text-[var(--ui-title)]">{product.price}</div>
         </div>
 
-        <Link
-          to={`/product/${product.id}`}
-          className="inline-flex items-center justify-center rounded-full bg-[rgba(111,39,53,0.1)] px-4 py-2 text-sm text-[var(--ui-title)] transition duration-300 hover:bg-[rgba(111,39,53,0.16)] hover:-translate-y-[1px]"
-        >
-          了解更多
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => void addToCart(product, 1)}
+            className="inline-flex items-center justify-center rounded-full bg-[#5f2330] px-4 py-2 text-sm text-[#fff8f3] transition duration-300 hover:-translate-y-[1px]"
+          >
+            加入购物袋
+          </button>
+          <Link
+            to={`/product/${product.id}`}
+            className="inline-flex items-center justify-center rounded-full bg-[rgba(111,39,53,0.1)] px-4 py-2 text-sm text-[var(--ui-title)] transition duration-300 hover:bg-[rgba(111,39,53,0.16)] hover:-translate-y-[1px]"
+          >
+            了解更多
+          </Link>
+        </div>
       </div>
     </article>
   );

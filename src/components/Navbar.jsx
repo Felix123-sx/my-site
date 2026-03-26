@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const location = useLocation();
   const { cartCount } = useCart();
+  const { isAuthenticated, profile, authLoading, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const isHome = location.pathname === "/";
@@ -28,6 +30,10 @@ export default function Navbar() {
   ];
 
   const links = isHome ? homeLinks : innerLinks;
+
+  async function handleSignOut() {
+    await signOut();
+  }
 
   return (
     <>
@@ -63,6 +69,37 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 md:flex">
+            {!authLoading ? (
+              isAuthenticated ? (
+                <>
+                  {profile?.role === "admin" ? (
+                    <>
+                      <Link to="/analytics" className="nav-text-link">
+                        Analytics
+                      </Link>
+                      <Link to="/admin/abandoned-carts" className="nav-text-link">
+                        弃单
+                      </Link>
+                    </>
+                  ) : null}
+                  <Link to="/account" className="nav-account-link">
+                    {profile?.full_name || profile?.email || "我的账户"}
+                  </Link>
+                  <button type="button" onClick={() => void handleSignOut()} className="nav-text-button">
+                    退出
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="nav-text-link">
+                    登录
+                  </Link>
+                  <Link to="/signup" className="nav-account-link">
+                    注册
+                  </Link>
+                </>
+              )
+            ) : null}
             <Link to="/cart" className="nav-cart-link">
               购物袋
               <span className="nav-cart-count">{cartCount}</span>
@@ -106,6 +143,66 @@ export default function Navbar() {
               )}
 
               <div className="mt-3 border-t border-[rgba(111,39,53,0.12)] pt-3">
+                {!authLoading ? (
+                  isAuthenticated ? (
+                    <>
+                      {profile?.role === "admin" ? (
+                        <>
+                          <Link
+                            to="/analytics"
+                            onClick={() => setMobileOpen(false)}
+                            className="mb-3 block rounded-xl bg-[rgba(255,250,246,0.9)] px-4 py-3 text-center text-sm text-[var(--ui-title)]"
+                          >
+                            Analytics
+                          </Link>
+                          <Link
+                            to="/admin/abandoned-carts"
+                            onClick={() => setMobileOpen(false)}
+                            className="mb-3 block rounded-xl bg-[rgba(255,250,246,0.9)] px-4 py-3 text-center text-sm text-[var(--ui-title)]"
+                          >
+                            弃单
+                          </Link>
+                        </>
+                      ) : null}
+                      <Link
+                        to="/account"
+                        onClick={() => setMobileOpen(false)}
+                        className="mb-3 flex items-center justify-between rounded-xl bg-[rgba(111,39,53,0.08)] px-4 py-3 text-[var(--ui-title)]"
+                      >
+                        <span>我的账户</span>
+                        <span className="text-xs text-[var(--ui-copy)]">{profile?.role || "customer"}</span>
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          void handleSignOut();
+                          setMobileOpen(false);
+                        }}
+                        className="mb-3 block w-full rounded-xl bg-[rgba(255,250,246,0.9)] px-4 py-3 text-center text-sm text-[var(--ui-title)]"
+                      >
+                        退出登录
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        to="/login"
+                        onClick={() => setMobileOpen(false)}
+                        className="mb-3 block rounded-xl bg-[rgba(255,250,246,0.9)] px-4 py-3 text-center text-sm text-[var(--ui-title)]"
+                      >
+                        登录
+                      </Link>
+                      <Link
+                        to="/signup"
+                        onClick={() => setMobileOpen(false)}
+                        className="mb-3 block rounded-xl bg-[rgba(111,39,53,0.08)] px-4 py-3 text-center text-sm text-[var(--ui-title)]"
+                      >
+                        注册
+                      </Link>
+                    </>
+                  )
+                ) : null}
+
                 <Link
                   to="/cart"
                   onClick={() => setMobileOpen(false)}

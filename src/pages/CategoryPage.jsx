@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import { products } from "../data/products";
+import { getProducts } from "../lib/products";
 
 const categoryDescriptions = {
   情侣关怀:
@@ -17,6 +18,18 @@ const categoryDescriptions = {
 export default function CategoryPage() {
   const { categoryName } = useParams();
   const decodedCategory = decodeURIComponent(categoryName);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      const nextProducts = await getProducts();
+      setProducts(nextProducts);
+      setLoading(false);
+    }
+
+    void loadProducts();
+  }, []);
 
   const filteredProducts = products.filter((product) => product.category === decodedCategory);
 
@@ -46,7 +59,14 @@ export default function CategoryPage() {
         </section>
 
         <section className="mt-12">
-          {filteredProducts.length > 0 ? (
+          {loading ? (
+            <div className="soft-tonal-card rounded-[1.8rem] p-8 md:p-10">
+              <div className="eyebrow">正在加载</div>
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)]">
+                正在读取该系列产品
+              </h2>
+            </div>
+          ) : filteredProducts.length > 0 ? (
             <>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>

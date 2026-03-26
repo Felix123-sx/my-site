@@ -1,18 +1,42 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { trackBeginCheckout, trackPurchase } from "../lib/analytics";
 
 export default function CartPage() {
   const {
+    cart,
     cartItems,
     removeFromCart,
     updateQuantity,
     clearCart,
     cartTotal,
     cartCount,
+    cartLoading,
+    cartError,
   } = useCart();
+  const { userId } = useAuth();
+  const [checkoutMessage, setCheckoutMessage] = useState("");
 
-  const getPriceNumber = (price) => Number(String(price).replace(/[^\d.]/g, ""));
+  async function handleBeginCheckout() {
+    try {
+      await trackBeginCheckout({ cart, userId });
+      setCheckoutMessage("已记录 begin_checkout 事件。");
+    } catch (_error) {
+      setCheckoutMessage("结账埋点发送失败，请稍后重试。");
+    }
+  }
+
+  async function handlePurchase() {
+    try {
+      await trackPurchase({ cart, userId });
+      setCheckoutMessage("已记录 purchase 事件。当前为演示购买，不会真正扣款。");
+    } catch (_error) {
+      setCheckoutMessage("购买埋点发送失败，请稍后重试。");
+    }
+  }
 
   return (
     <div className="min-h-screen tone-base text-[var(--text)]">
@@ -30,7 +54,17 @@ export default function CartPage() {
         </section>
 
         <section className="mt-10">
-          {cartItems.length === 0 ? (
+          {cartLoading ? (
+            <div className="soft-tonal-card rounded-[2rem] p-8 md:p-10">
+              <div className="eyebrow">正在加载</div>
+              <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl">
+                正在读取购物袋
+              </h2>
+              <p className="mt-5 max-w-2xl text-sm leading-8 text-[var(--ui-copy)]">
+                我们正在从 Supabase 同步你的购物车内容，请稍候。
+              </p>
+            </div>
+          ) : cartItems.length === 0 ? (
             <div className="soft-tonal-card rounded-[2rem] p-8 md:p-10">
               <div className="eyebrow">购物袋为空</div>
               <h2 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl">
@@ -67,14 +101,17 @@ export default function CartPage() {
                     >
                       清空购物袋
                     </button>
-                  </div>
                 </div>
+              </div>
 
-                <div className="space-y-4">
+              {cartError ? (
+                <div className="soft-tonal-card mb-6 rounded-[1.4rem] p-4 text-sm text-[var(--ui-title)]">
+                  {cartError}
+                </div>
+              ) : null}
+
+              <div className="space-y-4">
                   {cartItems.map((item) => {
-                    const unitPrice = getPriceNumber(item.price);
-                    const subtotal = unitPrice * item.quantity;
-
                     return (
                       <div key={item.id} className="soft-tonal-card rounded-[1.8rem] p-5 md:p-6">
                         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
@@ -89,7 +126,7 @@ export default function CartPage() {
                               <p className="mt-2 text-sm text-[var(--ui-copy)]">单价：{item.price}</p>
                               <p className="mt-1 text-sm text-[var(--ui-copy)]">分类：{item.category}</p>
                               <Link
-                                to={`/product/${item.id}`}
+                                to={`/product/${item.productId}`}
                                 className="mt-3 inline-block text-sm text-[var(--ui-title)] underline underline-offset-4"
                               >
                                 查看详情
@@ -100,7 +137,7 @@ export default function CartPage() {
                           <div className="flex flex-col items-start gap-4 md:items-end">
                             <div className="text-left md:text-right">
                               <div className="text-sm text-[var(--ui-copy)]">小计</div>
-                              <div className="mt-1 text-xl font-semibold text-[var(--ui-title)]">¥{subtotal}</div>
+                              <div className="mt-1 text-xl font-semibold text-[var(--ui-title)]">{item.subtotal}</div>
                             </div>
 
                             <div className="flex items-center rounded-full bg-[rgba(255,251,247,0.82)] px-2 py-2 shadow-[inset_0_0_0_1px_rgba(111,39,53,0.12)]">
@@ -151,18 +188,29 @@ export default function CartPage() {
                   <div className="border-t border-[rgba(111,39,53,0.14)] pt-4">
                     <div className="flex items-center justify-between text-lg font-semibold text-[var(--ui-title)]">
                       <span>合计</span>
-                      <span>¥{cartTotal}</span>
+                      <span>{cartTotal}</span>
                     </div>
                   </div>
                 </div>
 
-                <button className="btn-primary mt-6 w-full">去结算</button>
+                {checkoutMessage ? (
+                  <div className="soft-tonal-card mt-6 rounded-[1.2rem] p-4 text-sm text-[var(--ui-title)]">
+                    {checkoutMessage}
+                  </div>
+                ) : null}
+
+                <button className="btn-primary mt-6 w-full" onClick={() => void handleBeginCheckout()} type="button">
+                  去结算
+                </button>
+                <button className="btn-secondary mt-3 w-full" onClick={() => void handlePurchase()} type="button">
+                  完成演示购买
+                </button>
                 <Link to="/contact" className="btn-secondary mt-3 w-full">在线咨询</Link>
 
                 <div className="soft-tonal-card mt-6 rounded-[1.35rem] p-4">
                   <div className="text-[11px] uppercase tracking-[0.18em] text-[var(--ui-kicker)]">说明</div>
                   <p className="mt-2 text-sm leading-7 text-[var(--ui-copy)]">
-                    当前购物流程为前端演示版，价格与商品信息仅用于展示。
+                    当前购物袋已接入 Supabase 持久化，支持 guest session 与登录用户购物车。
                   </p>
                 </div>
               </aside>

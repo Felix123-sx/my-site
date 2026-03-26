@@ -1,14 +1,26 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import { products } from "../data/products";
+import { getProducts } from "../lib/products";
 
 const filters = ["全部", "情侣关怀", "润滑护理", "私密健康", "精选器具"];
 
 export default function ShopPage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("全部");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState("default");
+
+  useEffect(() => {
+    async function loadProducts() {
+      const nextProducts = await getProducts();
+      setProducts(nextProducts);
+      setLoading(false);
+    }
+
+    void loadProducts();
+  }, []);
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
@@ -29,15 +41,15 @@ export default function ShopPage() {
     }
 
     if (sortType === "price-asc") {
-      result.sort((a, b) => Number(String(a.price).replace(/[^\d.]/g, "")) - Number(String(b.price).replace(/[^\d.]/g, "")));
+      result.sort((a, b) => a.priceCents - b.priceCents);
     }
 
     if (sortType === "price-desc") {
-      result.sort((a, b) => Number(String(b.price).replace(/[^\d.]/g, "")) - Number(String(a.price).replace(/[^\d.]/g, "")));
+      result.sort((a, b) => b.priceCents - a.priceCents);
     }
 
     return result;
-  }, [activeFilter, searchTerm, sortType]);
+  }, [activeFilter, products, searchTerm, sortType]);
 
   return (
     <div className="min-h-screen tone-base text-[var(--text)]">
@@ -123,7 +135,15 @@ export default function ShopPage() {
             </div>
           </div>
 
-          {filteredProducts.length > 0 ? (
+          {loading ? (
+            <div className="soft-tonal-card rounded-[1.8rem] p-8 md:p-10">
+              <div className="eyebrow">正在加载</div>
+              <h3 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)]">正在读取产品目录</h3>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--ui-copy)]">
+                优先从 Supabase 读取商品，如果数据库暂时为空，会自动回退到本地演示数据。
+              </p>
+            </div>
+          ) : filteredProducts.length > 0 ? (
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />

@@ -1,6 +1,17 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: "",
+    contactMethod: "",
+    productInterest: "",
+    message: "",
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState("");
+
   const faqs = [
     {
       q: "是否支持隐私包装？",
@@ -15,6 +26,48 @@ export default function ContactPage() {
       a: "你可以先告诉我们你的需求与关注点，我们会根据使用场景给出更合适的建议。",
     },
   ];
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitting(true);
+    setFeedback("");
+
+    try {
+      const res = await fetch("/api/contact/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "提交失败");
+      }
+
+      setFeedback("提交成功，我们会尽快联系你。");
+      setForm({
+        name: "",
+        contactMethod: "",
+        productInterest: "",
+        message: "",
+      });
+    } catch (error) {
+      setFeedback(error.message || "提交失败，请稍后再试。");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="min-h-screen tone-base text-[var(--text)]">
@@ -80,28 +133,70 @@ export default function ContactPage() {
               先留下简单信息即可，后续可以再逐步接入真实表单与客服系统。
             </p>
 
-            <form className="mt-8 space-y-6">
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">称呼</label>
-                <input type="text" placeholder="请输入你的称呼" className="input-lux" />
+                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">
+                  称呼
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="请输入你的称呼"
+                  className="input-lux"
+                  value={form.name}
+                  onChange={handleChange}
+                />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">联系方式</label>
-                <input type="text" placeholder="邮箱 / 微信 / Telegram / WhatsApp" className="input-lux" />
+                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">
+                  联系方式
+                </label>
+                <input
+                  name="contactMethod"
+                  type="text"
+                  placeholder="邮箱 / 微信 / Telegram / WhatsApp"
+                  className="input-lux"
+                  value={form.contactMethod}
+                  onChange={handleChange}
+                />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">感兴趣的产品</label>
-                <input type="text" placeholder="例如：SilkCare 水性润滑剂" className="input-lux" />
+                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">
+                  感兴趣的产品
+                </label>
+                <input
+                  name="productInterest"
+                  type="text"
+                  placeholder="例如：SilkCare 水性润滑剂"
+                  className="input-lux"
+                  value={form.productInterest}
+                  onChange={handleChange}
+                />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">咨询内容</label>
-                <textarea rows="6" placeholder="请描述你的问题或需求" className="input-lux" />
+                <label className="mb-2 block text-sm font-medium text-[var(--ui-title)]">
+                  咨询内容
+                </label>
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="请描述你的问题或需求"
+                  className="input-lux"
+                  value={form.message}
+                  onChange={handleChange}
+                />
               </div>
 
-              <button type="button" className="btn-primary w-full">提交咨询</button>
+              {feedback && (
+                <div className="text-sm text-[var(--ui-copy)]">{feedback}</div>
+              )}
+
+              <button type="submit" className="btn-primary w-full" disabled={submitting}>
+                {submitting ? "提交中..." : "提交咨询"}
+              </button>
             </form>
           </div>
         </section>

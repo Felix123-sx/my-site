@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { getProductById } from "../lib/products";
+import { trackProductView } from "../lib/analytics";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const product = products.find((item) => item.id === id) || products[0];
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const { userId } = useAuth();
+  const lastTrackedView = useRef("");
 
   const benefits = ["隐私包装", "甄选材质", "舒适体验", "更克制的表达方式"];
   const details = [
@@ -17,6 +22,53 @@ export default function ProductDetail() {
     { label: "品牌语气", value: "克制、柔和、值得信任" },
     { label: "推荐人群", value: "重视设计感与舒适体验的人群" },
   ];
+
+  useEffect(() => {
+    async function loadProduct() {
+      const nextProduct = await getProductById(id);
+      setProduct(nextProduct);
+      setLoading(false);
+    }
+
+    void loadProduct();
+  }, [id]);
+
+  useEffect(() => {
+    if (!product) {
+      return;
+    }
+
+    const trackingKey = `${product.id}:${userId || "guest"}`;
+
+    if (lastTrackedView.current === trackingKey) {
+      return;
+    }
+
+    lastTrackedView.current = trackingKey;
+    void trackProductView({
+      product,
+      userId,
+    });
+  }, [product, userId]);
+
+  if (loading || !product) {
+    return (
+      <div className="min-h-screen tone-base text-[var(--text)]">
+        <Navbar />
+        <main className="mx-auto max-w-7xl px-4 pb-18 pt-10 sm:px-6 md:pb-28 md:pt-16">
+          <div className="soft-tonal-card rounded-[2rem] p-8 md:p-10">
+            <div className="eyebrow">正在加载</div>
+            <h1 className="font-editorial mt-4 text-4xl font-semibold text-[var(--ui-title)] md:text-6xl">
+              正在读取产品详情
+            </h1>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-[var(--ui-copy)]">
+              页面会优先读取 Supabase 商品数据，如果当前产品不存在，会回退到演示目录中的第一项。
+            </p>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen tone-base text-[var(--text)]">
@@ -73,7 +125,7 @@ export default function ProductDetail() {
                 <button className="h-10 w-10 rounded-full text-sm text-[var(--ui-copy)]" onClick={() => setQuantity((prev) => prev + 1)}>+</button>
               </div>
 
-              <button className="btn-secondary" onClick={() => addToCart(product, quantity)}>加入购物袋</button>
+              <button className="btn-secondary" onClick={() => void addToCart(product, quantity)}>加入购物袋</button>
               <button className="btn-primary">立即购买</button>
             </div>
 
