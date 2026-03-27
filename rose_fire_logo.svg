@@ -1,0 +1,29 @@
+<svg width="900" height="1400" viewBox="0 0 900 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1400" fill="#FFF9FC"/>
+
+  <g transform="translate(450 520)">
+    <path d="M0 250C-18 195 -15 150 0 112C15 150 18 195 0 250Z" fill="#7B2CBF"/>
+    <path d="M0 148C-80 125 -142 70 -162 -12C-78 6 -18 44 0 148Z" fill="#A855F7"/>
+    <path d="M0 148C80 125 142 70 162 -12C78 6 18 44 0 148Z" fill="#9333EA"/>
+    <path d="M-12 130C-112 106 -194 36 -224 -82C-110 -54 -28 8 -12 130Z" fill="#C084FC"/>
+    <path d="M12 130C112 106 194 36 224 -82C110 -54 28 8 12 130Z" fill="#6D28D9"/>
+    <path d="M0 102C-60 76 -98 24 -92 -52C-26 -26 0 18 0 102Z" fill="#E9D5FF"/>
+    <path d="M0 102C60 76 98 24 92 -52C26 -26 0 18 0 102Z" fill="#D8B4FE"/>
+    <path d="M0 118C-32 90 -42 48 -24 4C8 30 14 70 0 118Z" fill="#F3E8FF"/>
+    <path d="M0 118C32 90 42 48 24 4C-8 30 -14 70 0 118Z" fill="#E9D5FF"/>
+  </g>
+
+  <g transform="translate(450 775)">
+    <path d="M0 0C-8 70 -18 155 -30 236C-42 320 -56 394 -74 470" stroke="#4C1D95" stroke-width="22" stroke-linecap="round"/>
+
+    <path d="M-40 220C-152 184 -218 102 -214 4C-122 42 -70 96 -40 220Z" fill="#DC2626"/>
+    <path d="M-62 252C-172 236 -256 160 -282 60C-180 82 -98 144 -62 252Z" fill="#EF4444"/>
+    <path d="M-78 296C-176 304 -242 356 -250 440C-166 410 -108 366 -78 296Z" fill="#B91C1C"/>
+
+    <path d="M36 210C144 172 214 92 220 -8C126 28 70 84 36 210Z" fill="#F97316"/>
+    <path d="M58 250C170 224 250 146 270 42C168 70 92 138 58 250Z" fill="#EF4444"/>
+    <path d="M72 294C170 302 238 352 248 436C164 408 106 364 72 294Z" fill="#DC2626"/>
+
+    <path d="M-60 438C-22 422 8 420 44 432" stroke="#7C2D12" stroke-width="14" stroke-linecap="round"/>
+  </g>
+</svg>
