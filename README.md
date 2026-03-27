@@ -1,6 +1,6 @@
 # Next.js + Supabase Shopping Cart
 
-This workspace contains a clean TypeScript shopping cart implementation for a Next.js App Router project backed by Supabase.
+This workspace contains a TypeScript shopping cart implementation for a Next.js App Router project backed by Supabase, plus the admin dashboard and homepage UI work merged from the existing repository history.
 
 ## Included
 
@@ -14,8 +14,9 @@ This workspace contains a clean TypeScript shopping cart implementation for a Ne
 - A `/cart` UI page
 - Product listing page with add-to-cart actions
 - Guest cart persistence with an `httpOnly` `cart_session_id` cookie
+- Protected admin login and dashboard at `/admin`
 
-## Environment variables
+## Environment Variables
 
 Copy `.env.example` to `.env.local` and fill in:
 
@@ -24,15 +25,24 @@ Copy `.env.example` to `.env.local` and fill in:
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `ADMIN_ACCESS_KEY`
 
-## Database setup
+Optional legacy variables retained from earlier repo history:
+
+- `SUPABASE_URL`
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+## Database Setup
 
 Run the SQL in [`supabase/schema.sql`](/Users/mqbxya/Documents/Playground/supabase/schema.sql) in the Supabase SQL editor.
 
-## Logged-in users
+Additional historical SQL files from the previous Vite-based app remain in `supabase/` for reference:
 
-This starter resolves a signed-in user through the `x-user-id` request header. In a real app, replace that with your existing Supabase auth/session lookup and pass the authenticated user id into the cart owner resolver.
+- `supabase/cart_schema.sql`
+- `supabase/analytics_schema.sql`
+- `supabase/abandoned_cart_schema.sql`
+- `supabase/auth_schema.sql`
 
-## Admin dashboard
+## Admin Dashboard
 
 - Create the admin user in Supabase Auth with email/password first
 - Insert that user's id and email into `public.admin_users`
@@ -40,7 +50,7 @@ This starter resolves a signed-in user through the `x-user-id` request header. I
 - `/admin` is protected by an `httpOnly` admin auth cookie plus an `admin_users` membership check
 - The admin dashboard supports preset and custom date filters, order search, status filters, trend charts, and CSV export
 
-## File map
+## File Map
 
 - [`supabase/schema.sql`](/Users/mqbxya/Documents/Playground/supabase/schema.sql): database schema
 - [`lib/cart/service.ts`](/Users/mqbxya/Documents/Playground/lib/cart/service.ts): cart business logic
@@ -48,3 +58,9 @@ This starter resolves a signed-in user through the `x-user-id` request header. I
 - [`app/api/cart/add/route.ts`](/Users/mqbxya/Documents/Playground/app/api/cart/add/route.ts): add to cart
 - [`app/api/cart/item/route.ts`](/Users/mqbxya/Documents/Playground/app/api/cart/item/route.ts): update quantity and remove item
 - [`app/cart/page.tsx`](/Users/mqbxya/Documents/Playground/app/cart/page.tsx): cart page
+- [`components/marketing/animated-rose-logo.tsx`](/Users/mqbxya/Documents/Playground/components/marketing/animated-rose-logo.tsx): homepage animated logo
+- [`components/admin/admin-dashboard-client.tsx`](/Users/mqbxya/Documents/Playground/components/admin/admin-dashboard-client.tsx): admin dashboard UI
+
+## Repo History Note
+
+This repository now contains merged history from an earlier Vite/React storefront. Those legacy files are still present under `src/`, `api/`, and `public/`, while the current active implementation in this workspace is the Next.js app under `app/`, `components/`, and `lib/`.
