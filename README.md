@@ -1,6 +1,21 @@
-# Next.js + Supabase Shopping Cart
+# Next.js Mainline
 
-This workspace contains a TypeScript shopping cart implementation for a Next.js App Router project backed by Supabase, plus the admin dashboard and homepage UI work merged from the existing repository history.
+This repository's active codebase is now the Next.js App Router app in the root. The older Vite/React storefront has been archived under `legacy/vite-app/` so future development can stay focused on one main implementation.
+
+## Current Mainline
+
+- `app/`
+- `components/`
+- `lib/`
+- `supabase/schema.sql`
+- `package.json`
+
+Run locally:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Included
 
@@ -25,7 +40,7 @@ Copy `.env.example` to `.env.local` and fill in:
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `ADMIN_ACCESS_KEY`
 
-Optional legacy variables retained from earlier repo history:
+Optional legacy variables retained for archived repo history:
 
 - `SUPABASE_URL`
 - `VITE_SUPABASE_URL`
@@ -61,6 +76,14 @@ Additional historical SQL files from the previous Vite-based app remain in `supa
 - [`components/marketing/animated-rose-logo.tsx`](/Users/mqbxya/Documents/Playground/components/marketing/animated-rose-logo.tsx): homepage animated logo
 - [`components/admin/admin-dashboard-client.tsx`](/Users/mqbxya/Documents/Playground/components/admin/admin-dashboard-client.tsx): admin dashboard UI
 
-## Repo History Note
+## Archived Legacy App
 
-This repository now contains merged history from an earlier Vite/React storefront. Those legacy files are still present under `src/`, `api/`, and `public/`, while the current active implementation in this workspace is the Next.js app under `app/`, `components/`, and `lib/`.
+The previous Vite/React implementation has been moved to:
+
+- `legacy/vite-app/api/`
+- `legacy/vite-app/src/`
+- `legacy/vite-app/public/`
+- `legacy/vite-app/index.html`
+- `legacy/vite-app/vite.config.js`
+
+That archived app is preserved for history and reference only. Ongoing work should happen in the root Next.js app.
