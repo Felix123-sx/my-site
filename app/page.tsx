@@ -12,18 +12,35 @@ const trustPoints = [
 
 const guidanceSteps = [
   {
-    title: "Start with comfort first",
-    body: "Choose a gentle essential, a premium daily pick, or a more giftable option depending on where you are in the decision process.",
+    title: "Begin with comfort and confidence",
+    body: "Choose a softer first option, a premium daily essential, or a more elevated gift depending on what kind of experience you want to create.",
   },
   {
-    title: "Use the curated shortlist",
-    body: "The homepage is designed to reduce choice overload, so visitors can reach a decision without comparing dozens of similar items.",
+    title: "Use the curated edit",
+    body: "The assortment is intentionally concise, so shoppers can compare a few strong options instead of working through a cluttered catalog.",
   },
   {
     title: "Check out privately",
-    body: "The cart supports guest and returning shoppers, making it easy to browse now and complete the purchase later.",
+    body: "The cart supports guest and returning shoppers, making it easy to browse now, save your place, and complete the order when you are ready.",
   },
 ];
+
+const assortmentSignals = [
+  {
+    title: "Private by design",
+    body: "Packaging, pacing, and product language are built to feel discreet from first click to delivery.",
+  },
+  {
+    title: "Curated for adults, not algorithms",
+    body: "The homepage is edited like a boutique assortment rather than an endless marketplace of lookalike listings.",
+  },
+  {
+    title: "Luxury without awkwardness",
+    body: "Tone, imagery, and product guidance stay intimate and polished without becoming clinical or explicit.",
+  },
+];
+
+const featuredTags = ["Editors' pick", "Quiet luxury", "New favorite", "Private care", "Giftable", "Best seller"];
 
 const faqItems = [
   {
@@ -44,9 +61,9 @@ const faqItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "Thoughtful wellness essentials",
+  title: "Private wellness essentials",
   description:
-    "Browse a calmer selection of wellness essentials with discreet delivery, clearer product guidance, and a simpler path to purchase.",
+    "Browse a curated intimate wellness selection with discreet delivery, premium presentation, and clearer product guidance.",
 };
 
 function formatCurrency(amountCents: number, currency: string) {
@@ -84,64 +101,86 @@ export default async function HomePage() {
 
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">Thoughtful intimate wellness</p>
-          <h1>Premium essentials with clearer guidance and a quieter buying experience.</h1>
+          <p className="eyebrow">Private intimate wellness</p>
+          <h1>Adult essentials presented with more elegance, privacy, and certainty.</h1>
           <p className="hero-lead">
-            Northstar Supply helps people shop wellness products with more confidence by combining a curated catalog,
-            discreet delivery, and plain-English product context.
+            Northstar Supply is an adult wellness storefront designed to feel refined instead of noisy, with a tightly edited
+            catalog, discreet fulfillment, and product guidance that helps people choose without second-guessing.
           </p>
           <div className="hero-actions">
             <LinkButton href="#shop" label="Browse products" />
-            <LinkButton href="#consultation" label="Get buying guidance" variant="secondary" />
+            <LinkButton href="#consultation" label="Find your starting point" variant="secondary" />
           </div>
           <div className="hero-pills">
             <span className="pill">Discreet delivery</span>
-            <span className="pill">Curated product edit</span>
+            <span className="pill">Curated adult essentials</span>
             <span className="pill">Guest cart support</span>
+          </div>
+          <div className="hero-note">
+            <span className="hero-note-label">Store perspective</span>
+            <p>
+              This homepage is built to feel like a private boutique: fewer products, softer decision-making, and a more
+              premium tone from discovery to checkout.
+            </p>
           </div>
         </div>
 
         <aside className="hero-panel">
-          <p className="eyebrow">Why people convert faster here</p>
-          <h2>Less scrolling, less uncertainty, more confidence.</h2>
+          <p className="eyebrow">Private shopping standards</p>
+          <h2>Less noise, less hesitation, and a better first impression.</h2>
           <ul className="trust-list">
             {trustPoints.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
+          <div className="hero-panel-foot">
+            <span>Edited for first-time and returning adult shoppers.</span>
+            <strong>Calm luxury over catalog overload.</strong>
+          </div>
         </aside>
       </section>
 
       <section className="stats-grid" aria-label="Store highlights">
         <article className="info-card">
           <p className="eyebrow">What we sell</p>
-          <h2>Wellness essentials chosen for comfort, quality, and repeat use.</h2>
+          <h2>Adult essentials selected for comfort, quality, and repeat confidence.</h2>
         </article>
         <article className="info-card">
           <p className="eyebrow">Who it helps</p>
-          <h2>First-time buyers, returning customers, and gift shoppers who want a calmer experience.</h2>
+          <h2>First-time buyers, returning customers, and gift shoppers who want a more discreet experience.</h2>
         </article>
         <article className="info-card">
           <p className="eyebrow">Why it works</p>
-          <h2>Fewer but better options, stronger trust signals, and a direct path to cart.</h2>
+          <h2>Fewer strong options, higher trust, and a faster path from curiosity to checkout.</h2>
         </article>
+      </section>
+
+      <section className="trust-grid editorial-grid" aria-label="Brand experience highlights">
+        {assortmentSignals.map((item) => (
+          <article className="info-card editorial-card" key={item.title}>
+            <p className="eyebrow">Brand signal</p>
+            <h3>{item.title}</h3>
+            <p className="muted">{item.body}</p>
+          </article>
+        ))}
       </section>
 
       <section className="section-heading" id="shop">
         <div>
           <p className="eyebrow">Featured products</p>
-          <h2>Start with the most approachable options.</h2>
+          <h2>Begin with the most giftable, approachable, and confidence-building picks.</h2>
         </div>
         <p className="section-copy">
-          These are the products most likely to help a visitor understand the assortment quickly and make a confident first choice.
+          These are the products most likely to help a shopper understand the collection quickly and make a polished first purchase.
         </p>
       </section>
 
       {featuredProducts.length > 0 ? (
         <section className="product-grid">
-          {featuredProducts.map((product) => (
+          {featuredProducts.map((product, index) => (
             <article className="product-card" key={product.id}>
               <div className="product-media">
+                <span className="product-badge">{featuredTags[index % featuredTags.length]}</span>
                 {product.image_url ? (
                   <img alt={product.name} className="product-image" src={product.image_url} />
                 ) : (
@@ -177,7 +216,7 @@ export default async function HomePage() {
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">Why buy here</p>
-            <h2>Trust signals that remove hesitation.</h2>
+            <h2>A homepage flow that lowers friction for intimate purchases.</h2>
           </div>
         </div>
         <div className="trust-grid">
@@ -194,14 +233,15 @@ export default async function HomePage() {
       <section className="consultation-panel" id="consultation">
         <div>
           <p className="eyebrow">Need help choosing</p>
-          <h2>Make the next click obvious.</h2>
+          <h2>Choose your next click with less uncertainty.</h2>
           <p className="section-copy">
-            If you are unsure where to begin, start with featured products. If you already know what you want, go straight to cart and keep the flow moving.
+            If you are browsing for comfort, start with the featured edit. If you already know the category or product you want,
+            go straight to cart and keep the experience private and efficient.
           </p>
         </div>
         <div className="hero-actions">
           <LinkButton href="#shop" label="Review featured products" />
-          <LinkButton href="/cart" label="Open cart" variant="secondary" />
+          <LinkButton href="/cart" label="Open private cart" variant="secondary" />
         </div>
       </section>
 
@@ -209,7 +249,7 @@ export default async function HomePage() {
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">FAQ</p>
-            <h2>Answer the questions that usually block a purchase.</h2>
+            <h2>Answer the questions that most often delay an intimate purchase.</h2>
           </div>
         </div>
         <div className="faq-list">

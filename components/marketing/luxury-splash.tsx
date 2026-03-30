@@ -62,14 +62,15 @@ export function LuxurySplash() {
         ))}
       </div>
 
-        <div className="splash-center">
-          <div className={isMoving ? "logo-stage centered to-navbar" : "logo-stage centered"}>
-            <AnimatedRoseLogo size={180} />
-          </div>
+      <div className="splash-center">
+        <div className={isMoving ? "logo-stage centered fade-away" : "logo-stage centered"}>
+          <AnimatedRoseLogo size={228} />
+        </div>
 
         <div className="splash-copy">
-          <h1>Elegant Intimacy</h1>
-          <p>Luxury essentials with a discreet and immersive brand experience.</p>
+          <span className="splash-kicker">Northstar Supply</span>
+          <h1>Private pleasure, thoughtfully presented.</h1>
+          <p>Adult essentials curated with discreet delivery, softer language, and a more luxurious first impression.</p>
         </div>
 
         <div className={isMoving ? "loading-group fade" : "loading-group"}>

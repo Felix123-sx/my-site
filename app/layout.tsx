@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Link href="/" className="brand">
               <span className="site-brand-lockup">
                 <span className="site-brand-icon" aria-hidden="true">
-                  <RoseLogo size={12} />
+                  <RoseLogo size={26} />
                 </span>
                 <span>Northstar Supply</span>
               </span>
