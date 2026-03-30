@@ -70,7 +70,7 @@ export function LuxurySplash() {
         <div className="splash-copy">
           <span className="splash-kicker">peekplay</span>
           <h1>Private pleasure, thoughtfully presented.</h1>
-          <p>Adult essentials curated with discreet delivery, softer language, and a more luxurious first impression.</p>
+          <p>Discreet delivery, curated essentials, and a softer luxury experience for intimate shopping.</p>
         </div>
 
         <div className={isMoving ? "loading-group fade" : "loading-group"}>

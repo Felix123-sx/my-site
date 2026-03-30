@@ -7,24 +7,24 @@ import RoseLogo from "@/components/marketing/rose-logo";
 export const metadata: Metadata = {
   metadataBase: new URL("https://my-site-woad-omega.vercel.app"),
   title: {
-    default: "peekplay | Thoughtful wellness essentials",
+    default: "peekplay | Private pleasure, thoughtfully presented",
     template: "%s | peekplay",
   },
   description:
-    "A modern wellness shop focused on discreet delivery, curated products, and clear guidance for first-time and returning buyers.",
+    "peekplay is a private pleasure brand focused on discreet delivery, curated essentials, and a more refined shopping experience.",
   openGraph: {
-    title: "peekplay | Thoughtful wellness essentials",
+    title: "peekplay | Private pleasure, thoughtfully presented",
     description:
-      "Shop intimate wellness essentials with discreet delivery, curated recommendations, and a calmer buying experience.",
+      "Shop private pleasure essentials with discreet delivery, curated recommendations, and a calmer luxury experience.",
     url: "https://my-site-woad-omega.vercel.app",
     siteName: "peekplay",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "peekplay | Thoughtful wellness essentials",
+    title: "peekplay | Private pleasure, thoughtfully presented",
     description:
-      "Shop intimate wellness essentials with discreet delivery, curated recommendations, and a calmer buying experience.",
+      "Shop private pleasure essentials with discreet delivery, curated recommendations, and a calmer luxury experience.",
   },
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <div className="top-banner">Discreet delivery. Curated essentials. Clear guidance.</div>
+        <div className="top-banner">Private pleasure, thoughtfully presented.</div>
         <header className="site-header">
           <div className="shell header-inner">
             <Link href="/" className="brand">
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="site-brand-icon" aria-hidden="true">
                   <RoseLogo size={26} />
                 </span>
-                <span>peekplay</span>
+                <span className="brand-wordmark">peekplay</span>
               </span>
             </Link>
             <nav className="nav">
