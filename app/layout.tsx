@@ -7,22 +7,22 @@ import RoseLogo from "@/components/marketing/rose-logo";
 export const metadata: Metadata = {
   metadataBase: new URL("https://my-site-woad-omega.vercel.app"),
   title: {
-    default: "peekplay | Private pleasure, thoughtfully presented",
-    template: "%s | peekplay",
+    default: "Peekplay | Private pleasure, thoughtfully presented",
+    template: "%s | Peekplay",
   },
   description:
-    "peekplay is a private pleasure brand focused on discreet delivery, curated essentials, and a more refined shopping experience.",
+    "Peekplay is a private pleasure brand focused on discreet delivery, curated essentials, and a more refined shopping experience.",
   openGraph: {
-    title: "peekplay | Private pleasure, thoughtfully presented",
+    title: "Peekplay | Private pleasure, thoughtfully presented",
     description:
       "Shop private pleasure essentials with discreet delivery, curated recommendations, and a calmer luxury experience.",
     url: "https://my-site-woad-omega.vercel.app",
-    siteName: "peekplay",
+    siteName: "Peekplay",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "peekplay | Private pleasure, thoughtfully presented",
+    title: "Peekplay | Private pleasure, thoughtfully presented",
     description:
       "Shop private pleasure essentials with discreet delivery, curated recommendations, and a calmer luxury experience.",
   },
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="site-brand-icon" aria-hidden="true">
                   <RoseLogo size={26} />
                 </span>
-                <span className="brand-wordmark">peekplay</span>
+                <span className="brand-wordmark">Peekplay</span>
               </span>
             </Link>
             <nav className="nav">

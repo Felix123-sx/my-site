@@ -53,7 +53,7 @@ const fallbackProducts: ProductRow[] = [
   },
   {
     id: "demo-2",
-    name: "peekplay Daily Massager",
+    name: "Peekplay Daily Massager",
     slug: "northstar-daily-massager",
     description: "复购率较高的核心 SKU。",
     image_url: null,
@@ -165,7 +165,7 @@ const fallbackOrderItems: OrderItemRecord[] = [
   {
     order_id: "order-1002",
     product_id: "demo-2",
-    product_name: "peekplay Daily Massager",
+    product_name: "Peekplay Daily Massager",
     quantity: 1,
     subtotal_cents: 7900,
     created_at: "2026-03-27T01:30:00.000Z",
@@ -190,7 +190,7 @@ const fallbackOrderItems: OrderItemRecord[] = [
 
 export const metadata: Metadata = {
   title: "数据管理台",
-  description: "为 peekplay 数据管理员提供更直观的业务概览、订单监控与商品表现分析。",
+  description: "为 Peekplay 数据管理员提供更直观的业务概览、订单监控与商品表现分析。",
 };
 
 export const dynamic = "force-dynamic";
