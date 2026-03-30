@@ -68,7 +68,7 @@ export function LuxurySplash() {
         </div>
 
         <div className="splash-copy">
-          <span className="splash-kicker">Northstar Supply</span>
+          <span className="splash-kicker">peekplay</span>
           <h1>Private pleasure, thoughtfully presented.</h1>
           <p>Adult essentials curated with discreet delivery, softer language, and a more luxurious first impression.</p>
         </div>

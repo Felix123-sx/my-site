@@ -104,7 +104,7 @@ export default async function HomePage() {
           <p className="eyebrow">Private intimate wellness</p>
           <h1>Adult essentials presented with more elegance, privacy, and certainty.</h1>
           <p className="hero-lead">
-            Northstar Supply is an adult wellness storefront designed to feel refined instead of noisy, with a tightly edited
+            peekplay is an adult wellness storefront designed to feel refined instead of noisy, with a tightly edited
             catalog, discreet fulfillment, and product guidance that helps people choose without second-guessing.
           </p>
           <div className="hero-actions">

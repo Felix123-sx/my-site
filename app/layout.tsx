@@ -7,22 +7,22 @@ import RoseLogo from "@/components/marketing/rose-logo";
 export const metadata: Metadata = {
   metadataBase: new URL("https://my-site-woad-omega.vercel.app"),
   title: {
-    default: "Northstar Supply | Thoughtful wellness essentials",
-    template: "%s | Northstar Supply",
+    default: "peekplay | Thoughtful wellness essentials",
+    template: "%s | peekplay",
   },
   description:
     "A modern wellness shop focused on discreet delivery, curated products, and clear guidance for first-time and returning buyers.",
   openGraph: {
-    title: "Northstar Supply | Thoughtful wellness essentials",
+    title: "peekplay | Thoughtful wellness essentials",
     description:
       "Shop intimate wellness essentials with discreet delivery, curated recommendations, and a calmer buying experience.",
     url: "https://my-site-woad-omega.vercel.app",
-    siteName: "Northstar Supply",
+    siteName: "peekplay",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Northstar Supply | Thoughtful wellness essentials",
+    title: "peekplay | Thoughtful wellness essentials",
     description:
       "Shop intimate wellness essentials with discreet delivery, curated recommendations, and a calmer buying experience.",
   },
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <span className="site-brand-icon" aria-hidden="true">
                   <RoseLogo size={26} />
                 </span>
-                <span>Northstar Supply</span>
+                <span>peekplay</span>
               </span>
             </Link>
             <nav className="nav">
