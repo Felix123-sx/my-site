@@ -5,38 +5,38 @@ import { supabaseAdmin } from "@/lib/supabase";
 import type { ProductRow } from "@/lib/cart/types";
 
 const trustPoints = [
-  "Discreet packaging with no category callouts on the outside.",
-  "A tighter assortment so first-time buyers can choose faster.",
-  "Clear product context instead of vague, over-designed copy.",
+  "Discreet packaging.",
+  "Curated bestsellers.",
+  "Clear, low-pressure shopping.",
 ];
 
 const guidanceSteps = [
   {
-    title: "Begin with comfort and confidence",
-    body: "Choose a softer first option, a premium daily essential, or a more elevated gift depending on what kind of experience you want to create.",
+    title: "Start simple",
+    body: "Begin with the edit made for first-time confidence.",
   },
   {
-    title: "Use the curated edit",
-    body: "The assortment is intentionally concise, so shoppers can compare a few strong options instead of working through a cluttered catalog.",
+    title: "Shop the shortlist",
+    body: "Fewer options. Better choices.",
   },
   {
     title: "Check out privately",
-    body: "The cart supports guest and returning shoppers, making it easy to browse now, save your place, and complete the order when you are ready.",
+    body: "Guest-friendly checkout with a discreet experience end to end.",
   },
 ];
 
 const assortmentSignals = [
   {
     title: "Private by design",
-    body: "Packaging, pacing, and product language are built to feel discreet from first click to delivery.",
+    body: "Discreet from click to delivery.",
   },
   {
-    title: "Curated for adults, not algorithms",
-    body: "The homepage is edited like a boutique assortment rather than an endless marketplace of lookalike listings.",
+    title: "Curated, not crowded",
+    body: "A boutique edit, not an endless catalog.",
   },
   {
-    title: "Luxury without awkwardness",
-    body: "Tone, imagery, and product guidance stay intimate and polished without becoming clinical or explicit.",
+    title: "Quiet luxury",
+    body: "Polished, intimate, and easy to browse.",
   },
 ];
 
@@ -45,25 +45,21 @@ const featuredTags = ["Editors' pick", "Quiet luxury", "New favorite", "Private 
 const faqItems = [
   {
     question: "Is the packaging discreet?",
-    answer:
-      "Yes. Orders are intended to arrive in plain outer packaging so the contents are not announced during delivery.",
+    answer: "Yes. Orders arrive in plain outer packaging.",
   },
   {
     question: "Is this suitable for first-time buyers?",
-    answer:
-      "Yes. The product mix and homepage flow are structured to help first-time shoppers understand the range quickly and choose with more confidence.",
+    answer: "Yes. The edit is designed to feel simple and approachable.",
   },
   {
     question: "Will my cart stay if I leave the site?",
-    answer:
-      "Yes. The cart is designed to persist for guest and signed-in shoppers, so browsing does not need to happen in one session.",
+    answer: "Yes. Your cart stays so you can come back later.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Private wellness essentials",
-  description:
-    "Browse a curated intimate wellness selection with discreet delivery, premium presentation, and clearer product guidance.",
+  description: "Curated private pleasure essentials with discreet delivery and a calmer way to shop.",
 };
 
 function formatCurrency(amountCents: number, currency: string) {
@@ -102,56 +98,46 @@ export default async function HomePage() {
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">Private intimate wellness</p>
-          <h1>Adult essentials presented with more elegance, privacy, and certainty.</h1>
-          <p className="hero-lead">
-            Peekplay is a private pleasure storefront designed to feel refined instead of noisy, with a tightly edited
-            catalog, discreet fulfillment, and product guidance that helps people choose without second-guessing.
-          </p>
+          <h1>Private pleasure, better presented.</h1>
+          <p className="hero-lead">Curated essentials. Discreet delivery. A calmer way to shop.</p>
           <div className="hero-actions">
-            <LinkButton href="#shop" label="Browse products" />
-            <LinkButton href="#consultation" label="Find your starting point" variant="secondary" />
+            <LinkButton href="#shop" label="Shop now" />
+            <LinkButton href="#consultation" label="Find your fit" variant="secondary" />
           </div>
           <div className="hero-pills">
             <span className="pill">Discreet delivery</span>
-            <span className="pill">Curated adult essentials</span>
-            <span className="pill">Guest cart support</span>
-          </div>
-          <div className="hero-note">
-            <span className="hero-note-label">Store perspective</span>
-            <p>
-              This homepage is built to feel like a private boutique: fewer products, softer decision-making, and a more
-              premium tone from discovery to checkout.
-            </p>
+            <span className="pill">Curated edit</span>
+            <span className="pill">Guest checkout</span>
           </div>
         </div>
 
         <aside className="hero-panel">
-          <p className="eyebrow">Private shopping standards</p>
-          <h2>Less noise, less hesitation, and a better first impression.</h2>
+          <p className="eyebrow">Why Peekplay</p>
+          <h2>Less noise. More confidence.</h2>
           <ul className="trust-list">
             {trustPoints.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
           <div className="hero-panel-foot">
-            <span>Edited for first-time and returning adult shoppers.</span>
-            <strong>Calm luxury over catalog overload.</strong>
+            <span>For first-time and returning shoppers.</span>
+            <strong>Shop with more ease.</strong>
           </div>
         </aside>
       </section>
 
       <section className="stats-grid" aria-label="Store highlights">
         <article className="info-card">
-          <p className="eyebrow">What we sell</p>
-          <h2>Adult essentials selected for comfort, quality, and repeat confidence.</h2>
+          <p className="eyebrow">What to expect</p>
+          <h2>Curated essentials with a premium, private feel.</h2>
         </article>
         <article className="info-card">
-          <p className="eyebrow">Who it helps</p>
-          <h2>First-time buyers, returning customers, and gift shoppers who want a more discreet experience.</h2>
+          <p className="eyebrow">Who it is for</p>
+          <h2>Beginners, returning shoppers, and gift buyers.</h2>
         </article>
         <article className="info-card">
           <p className="eyebrow">Why it works</p>
-          <h2>Fewer strong options, higher trust, and a faster path from curiosity to checkout.</h2>
+          <h2>Fewer choices, faster decisions, less awkwardness.</h2>
         </article>
       </section>
 
@@ -168,11 +154,9 @@ export default async function HomePage() {
       <section className="section-heading" id="shop">
         <div>
           <p className="eyebrow">Featured products</p>
-          <h2>Begin with the most giftable, approachable, and confidence-building picks.</h2>
+          <h2>Start with the favorites.</h2>
         </div>
-        <p className="section-copy">
-          These are the products most likely to help a shopper understand the collection quickly and make a polished first purchase.
-        </p>
+        <p className="section-copy">Bestsellers picked for comfort, ease, and appeal.</p>
       </section>
 
       {featuredProducts.length > 0 ? (
@@ -193,7 +177,7 @@ export default async function HomePage() {
                 <div className="product-meta">
                   <div>
                     <h3>{product.name}</h3>
-                    <p className="muted">{product.description ?? "A considered essential for daily comfort and confidence."}</p>
+                    <p className="muted">{product.description ?? "A refined essential for comfort and confidence."}</p>
                   </div>
                   <span className="price">{formatCurrency(product.price_cents, product.currency)}</span>
                 </div>
@@ -216,7 +200,7 @@ export default async function HomePage() {
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">Why buy here</p>
-            <h2>A homepage flow that lowers friction for intimate purchases.</h2>
+            <h2>A simpler way to shop private pleasure.</h2>
           </div>
         </div>
         <div className="trust-grid">
@@ -233,14 +217,11 @@ export default async function HomePage() {
       <section className="consultation-panel" id="consultation">
         <div>
           <p className="eyebrow">Need help choosing</p>
-          <h2>Choose your next click with less uncertainty.</h2>
-          <p className="section-copy">
-            If you are browsing for comfort, start with the featured edit. If you already know the category or product you want,
-            go straight to cart and keep the experience private and efficient.
-          </p>
+          <h2>Pick your next step fast.</h2>
+          <p className="section-copy">Start with the featured edit or go straight to your cart.</p>
         </div>
         <div className="hero-actions">
-          <LinkButton href="#shop" label="Review featured products" />
+          <LinkButton href="#shop" label="Shop now" />
           <LinkButton href="/cart" label="Open private cart" variant="secondary" />
         </div>
       </section>
@@ -249,7 +230,7 @@ export default async function HomePage() {
         <div className="section-heading compact">
           <div>
             <p className="eyebrow">FAQ</p>
-            <h2>Answer the questions that most often delay an intimate purchase.</h2>
+            <h2>The essentials, answered.</h2>
           </div>
         </div>
         <div className="faq-list">

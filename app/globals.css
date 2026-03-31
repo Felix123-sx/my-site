@@ -100,6 +100,10 @@ input {
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 0.92;
+  color: #c8a2ff;
+  text-shadow:
+    0 0 12px rgba(200, 162, 255, 0.22),
+    0 1px 0 rgba(0, 0, 0, 0.18);
 }
 
 .site-brand-icon {
